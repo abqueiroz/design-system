@@ -1,13 +1,13 @@
 import { Moon, Sun } from "lucide-react"
-import { Button } from "@/components/atoms/Button"
 import { useTheme } from "@/hooks/use-theme"
+import { Button } from "../"
 
 export function ThemeToggle() {
   const { toggleTheme } = useTheme()
 
   return (
     <Button
-      variant="ghost"
+      variant="outlined"
       size="sm"
       onClick={toggleTheme}
       className="w-9 px-0"
