@@ -106,9 +106,8 @@ export function ThemeProvider({
     styleTag.innerHTML = css
 
     return () => {
-      // Cleanup if needed? Usually we keep it for performance if multiple stories use it,
-      // but if the component unmounts we should remove it.
-      // styleTag.remove()
+      // remove style tag on unmount, remove this when building the library
+      styleTag.remove()
     }
   }, [customTheme, selector])
 

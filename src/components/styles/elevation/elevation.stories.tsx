@@ -30,10 +30,10 @@ export const ElevationLevels: Story = {
 
     return (
       <div
-        className={`flex flex-col gap-12 p-12 rounded-xl transition-colors min-w-200 ${theme === 'light' ? 'bg-surface-2' : 'bg-gray-600'
+        className={`flex flex-col gap-8 p-8 rounded-xl transition-colors ${theme === 'light' ? 'bg-surface-2' : 'bg-gray-600'
           }`}
       >
-        <div className="flex items-center justify-between gap-4 mb-4">
+        <div className="flex items-center justify-between gap-4 mb-2">
           <Typography variant="h2" weight="bold">Elevation Levels</Typography>
           <div className="flex items-center gap-4">
             <Typography variant="body-1" weight="medium">
@@ -49,14 +49,18 @@ export const ElevationLevels: Story = {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {shadowLevels.map((shadow) => (
-            <div key={shadow.level} className="flex flex-col gap-4 items-center">
+        <div className="grid grid-cols-2 gap-y-12 gap-x-32 w-full">
+          {shadowLevels.map((shadow, index) => (
+            <div
+              key={shadow.level}
+              className={`flex flex-col gap-4 ${index % 2 === 0 ? 'items-start' : 'items-end'
+                }`}
+            >
               <Card
                 title={shadow.level}
                 description={`Applied with class \`${shadow.class}\``}
                 className={shadow.class}
-              //image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+                image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
               />
             </div>
           ))}
