@@ -13,9 +13,12 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "style": "./src/index.css",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
+    "./index.css": "./src/index.css",
+    "./theme.css": "./src/theme.css",
     "./styles": "./src/index.css"
   },
   "scripts": {
