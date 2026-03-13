@@ -1,9 +1,9 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { ProgressBar } from './'
 import { cn } from '../../../lib/utils'
 import { useTheme } from '../../../hooks'
 import { Button } from '../../atoms/Button/Button'
+import { ProgressBar } from './Progressbar'
 
 const meta = {
   title: 'molecules/ProgressBar',

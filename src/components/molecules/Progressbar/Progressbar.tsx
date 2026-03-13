@@ -101,6 +101,6 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
   }
 )
 
-ProgressBar.displayName = 'ProgressBar'
+ProgressBar.displayName = 'Progressbar'
 
 export { ProgressBar, type ProgressBarProps }
