@@ -1,11 +1,9 @@
-import * as React from 'react'
-
 import { cn } from '../../../lib/utils'
 import type { CardProps } from './'
 import { Typography } from '@/components/atoms/Typography'
 import { Button } from '@/components/atoms/Button'
 import { Chip } from '@/components/molecules/Chip'
-import { ImageIcon, MoreHorizontal } from 'lucide-react'
+import { ImageIcon } from 'lucide-react'
 // import { Popover, PopoverContent, PopoverTrigger } from '../../primitives/popover'
 // Note: Popover components are missing in the current structure.
 
@@ -68,7 +66,7 @@ function Card({
         {/* Labels / Chips */}
         {labels && labels.length > 0 && (
           <div className="flex flex-row flex-wrap gap-2">
-            {labels.map((label, index) => (
+            {labels.map((label) => (
               <Chip
                 key={label}
                 label={label}
