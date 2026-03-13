@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TextInput } from "./TextInput";
+import { TextInput } from "../TextInput/TextInput";
 import { Search as SearchIcon, Mail, Lock, Eye, Bell } from "lucide-react";
 
 const meta = {

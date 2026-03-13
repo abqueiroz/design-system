@@ -1,8 +1,8 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { X } from "lucide-react";
-import { Typography } from '@/components/atoms';
-import { cn } from '@/lib';
+import { Typography } from '../../atoms';
+import { cn } from '../../../lib';
 
 const chipVariants = cva(
   "inline-flex items-center justify-center gap-1.5 whitespace-nowrap transition-all overflow-hidden shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-primary-main focus-visible:ring-offset-1 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5",

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, useTheme } from '@/index'
+import { Button, useTheme } from '../../../'
 
 /**
  * These stories demonstrate the custom scrollbar styling defined in `globals.css`.

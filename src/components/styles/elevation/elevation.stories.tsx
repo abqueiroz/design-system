@@ -1,6 +1,6 @@
-import { Typography, Button } from '@/components/atoms'
-import { Card } from '@/components/organisms'
-import { useTheme } from '@/hooks'
+import { Typography, Button } from '../../../components/atoms'
+import { Card } from '../../../components/organisms'
+import { useTheme } from '../../../hooks/use-theme'
 import type { Meta, StoryObj } from '@storybook/react'
 
 

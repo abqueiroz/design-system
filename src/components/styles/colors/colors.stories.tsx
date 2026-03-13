@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '@/components/atoms'
-import { useTheme } from '@/hooks'
+import { Button } from '../../atoms/Button/Button'
+import { useTheme } from '../../../hooks'
 
 /**
  * This story showcases the comprehensive color palette defined in the design system's theme.

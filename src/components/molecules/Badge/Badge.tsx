@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../../lib/utils'
-import { TypographyProps, Typography } from '@/components/atoms'
+import { TypographyProps, Typography } from '../../atoms'
 
 const badgeVariants = cva(
   'inline-flex items-center justify-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',

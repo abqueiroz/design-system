@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ProgressBar } from './'
 import { cn } from '../../../lib/utils'
 import { useTheme } from '../../../hooks'
-import { Button } from '@/components/atoms/Button'
+import { Button } from '../../atoms/Button/Button'
 
 const meta = {
   title: 'molecules/ProgressBar',

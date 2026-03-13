@@ -1,8 +1,8 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./Button";
+import { Button } from "../Button/Button";
 import { Mail, ArrowRight, Plus, LogOut } from "lucide-react";
-import { useTheme, ThemeProvider } from '@/hooks/use-theme';
+import { useTheme, ThemeProvider } from '../../../hooks/use-theme';
 
 const meta = {
   title: "atoms/Button",
