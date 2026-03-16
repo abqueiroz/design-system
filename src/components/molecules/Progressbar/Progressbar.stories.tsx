@@ -150,7 +150,7 @@ export const ToggleTheme: Story = {
       <div
         className={cn(
           'p-12 rounded-xl transition-all duration-500 border-2 border-dashed',
-          'bg-white border-slate-200'
+          ` ${theme === "light" ? "bg-white" : "bg-slate-950"} border-slate-200`
         )}
       >
         <Button onClick={toggleTheme} variant='outlined'>
