@@ -19,21 +19,21 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const ColorSwatch = ({ name, variable }: { name: string; variable: string }) => (
-  <div className="flex flex-col gap-2 p-2 rounded-lg border border-outline-1 bg-surface-1 shadow-sm transition-all hover:shadow-md">
+  <div className="flex flex-col gap-2 p-2 rounded-lg border border-primary-100 bg-primary-50 shadow-sm transition-all hover:shadow-md">
     <div
-      className="h-16 w-full rounded-md border border-outline-1"
+      className="h-16 w-full rounded-md border border-primary-100 dark:border-primary-800"
       style={{ backgroundColor: `var(${variable})` }}
     />
     <div className="px-1">
-      <p className="text-xs font-bold text-text-primary truncate" title={name}>{name}</p>
-      <code className="text-[10px] text-text-secondary select-all">{variable}</code>
+      <p className="text-xs font-bold text-primary-900 truncate" title={name}>{name}</p>
+      <code className="text-[10px] text-primary-500 select-all">{variable}</code>
     </div>
   </div>
 )
 
 const ColorGroup = ({ title, colors }: { title: string; colors: { name: string; variable: string }[] }) => (
   <div className="flex flex-col gap-4 mb-8">
-    <h3 className="text-xl font-bold border-b border-outline-1 pb-2 text-text-primary">{title}</h3>
+    <h3 className="text-xl font-bold border-b border-primary-100 pb-2 text-primary-900 dark:border-primary-800 dark:text-primary-50">{title}</h3>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
       {colors.map((color) => (
         <ColorSwatch key={color.variable} {...color} />
@@ -48,17 +48,17 @@ export const Palette: Story = {
 
     return (
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12 p-8 rounded-2xl border border-outline-1 bg-surface-2 shadow-sm transition-all">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12 p-8 rounded-2xl border border-primary-100 bg-primary-50 shadow-sm transition-all dark:border-primary-800 dark:bg-primary-900/50">
           <div className="flex flex-col gap-2">
-            <h1 className="text-4xl font-extrabold text-text-primary">Interactive Palette</h1>
-            <p className="text-text-secondary text-lg">
+            <h1 className="text-4xl font-extrabold text-primary-900 dark:text-primary-50">Interactive Palette</h1>
+            <p className="text-primary-500 text-lg">
               Toggle the theme to see how colors adapt dynamically across the design system.
             </p>
           </div>
-          <div className="flex items-center gap-4 bg-surface-1 p-4 rounded-xl border border-outline-1 shadow-inner">
+          <div className="flex items-center gap-4 bg-primary-100/20 p-4 rounded-xl border border-primary-100 shadow-inner dark:bg-primary-900 dark:border-primary-800">
             <div className="flex flex-col">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-text-disabled">Active Theme</span>
-              <span className="text-sm font-black text-primary-main uppercase tracking-tight">{theme}</span>
+              <span className="text-[10px] uppercase font-bold tracking-widest text-primary-400">Active Theme</span>
+              <span className="text-sm font-black text-primary-600 uppercase tracking-tight dark:text-primary-400">{theme}</span>
             </div>
             <Button
               variant="outlined"
@@ -71,53 +71,121 @@ export const Palette: Story = {
         </div>
 
         <ColorGroup
-          title="Primary Palette"
+          title="Primary (Grayscale)"
           colors={[
-            { name: 'Main', variable: '--color-primary-main' },
-            { name: 'Subtle', variable: '--color-primary-subtle' },
-            { name: 'Bold', variable: '--color-primary-bold' },
-            { name: 'Deep', variable: '--color-primary-deep' },
-            { name: 'Hover', variable: '--color-primary-hover' },
-            { name: 'Selected', variable: '--color-primary-selected' },
-            { name: 'Disabled', variable: '--color-primary-disabled' },
-            { name: 'Outline', variable: '--color-primary-outline' },
-            { name: 'Subtle Hover', variable: '--color-primary-subtle-hover' },
-            { name: 'Subtle Selected', variable: '--color-primary-subtle-selected' },
+            { name: "50", variable: "--color-primary-50" },
+            { name: "100", variable: "--color-primary-100" },
+            { name: "200", variable: "--color-primary-200" },
+            { name: "300", variable: "--color-primary-300" },
+            { name: "400", variable: "--color-primary-400" },
+            { name: "500", variable: "--color-primary-500" },
+            { name: "600", variable: "--color-primary-600" },
+            { name: "700", variable: "--color-primary-700" },
+            { name: "800", variable: "--color-primary-800" },
+            { name: "900", variable: "--color-primary-900" },
           ]}
         />
 
         <ColorGroup
-          title="Semantic Colors"
+          title="Red Palette"
           colors={[
-            { name: 'Error Main', variable: '--color-error-main' },
-            { name: 'Error Bold', variable: '--color-error-bold' },
-            { name: 'Warning Main', variable: '--color-warning-main' },
-            { name: 'Warning Bold', variable: '--color-warning-bold' },
-            { name: 'Success Main', variable: '--color-success-main' },
-            { name: 'Success Bold', variable: '--color-success-bold' },
-            { name: 'Info Main', variable: '--color-info-main' },
-            { name: 'Info Bold', variable: '--color-info-bold' },
+            { name: "50", variable: "--color-red-50" },
+            { name: "100", variable: "--color-red-100" },
+            { name: "200", variable: "--color-red-200" },
+            { name: "300", variable: "--color-red-300" },
+            { name: "400", variable: "--color-red-400" },
+            { name: "500", variable: "--color-red-500" },
+            { name: "600", variable: "--color-red-600" },
+            { name: "700", variable: "--color-red-700" },
+            { name: "800", variable: "--color-red-800" },
+            { name: "900", variable: "--color-red-900" },
           ]}
         />
 
         <ColorGroup
-          title="Neutral: Internal Layout"
+          title="Yellow Palette"
           colors={[
-            { name: 'Surface 1', variable: '--color-surface-1' },
-            { name: 'Surface 2', variable: '--color-surface-2' },
-            { name: 'Surface 3', variable: '--color-surface-3' },
-            { name: 'Surface Deep', variable: '--color-surface-deep' },
-            { name: 'Outline 1', variable: '--color-outline-1' },
-            { name: 'Outline 2', variable: '--color-outline-2' },
+            { name: "50", variable: "--color-yellow-50" },
+            { name: "100", variable: "--color-yellow-100" },
+            { name: "200", variable: "--color-yellow-200" },
+            { name: "300", variable: "--color-yellow-300" },
+            { name: "400", variable: "--color-yellow-400" },
+            { name: "500", variable: "--color-yellow-500" },
+            { name: "600", variable: "--color-yellow-600" },
+            { name: "700", variable: "--color-yellow-700" },
+            { name: "800", variable: "--color-yellow-800" },
+            { name: "900", variable: "--color-yellow-900" },
           ]}
         />
 
         <ColorGroup
-          title="Neutral: Typography"
+          title="Green Palette"
           colors={[
-            { name: 'Text Primary', variable: '--color-text-primary' },
-            { name: 'Text Secondary', variable: '--color-text-secondary' },
-            { name: 'Text Disabled', variable: '--color-text-disabled' },
+            { name: "50", variable: "--color-green-50" },
+            { name: "100", variable: "--color-green-100" },
+            { name: "200", variable: "--color-green-200" },
+            { name: "300", variable: "--color-green-300" },
+            { name: "400", variable: "--color-green-400" },
+            { name: "500", variable: "--color-green-500" },
+            { name: "600", variable: "--color-green-600" },
+            { name: "700", variable: "--color-green-700" },
+            { name: "800", variable: "--color-green-800" },
+            { name: "900", variable: "--color-green-900" },
+          ]}
+        />
+
+        <ColorGroup
+          title="Metallic Seaweed Palette"
+          colors={[
+            { name: "50", variable: "--color-metallicSeaweed-50" },
+            { name: "100", variable: "--color-metallicSeaweed-100" },
+            { name: "200", variable: "--color-metallicSeaweed-200" },
+            { name: "300", variable: "--color-metallicSeaweed-300" },
+            { name: "400", variable: "--color-metallicSeaweed-400" },
+            { name: "500", variable: "--color-metallicSeaweed-500" },
+            { name: "600", variable: "--color-metallicSeaweed-600" },
+            { name: "700", variable: "--color-metallicSeaweed-700" },
+            { name: "800", variable: "--color-metallicSeaweed-800" },
+            { name: "900", variable: "--color-metallicSeaweed-900" },
+          ]}
+        />
+
+        <ColorGroup
+          title="Solar Orange Palette"
+          colors={[
+            { name: "50", variable: "--color-solarOrange-50" },
+            { name: "100", variable: "--color-solarOrange-100" },
+            { name: "200", variable: "--color-solarOrange-200" },
+            { name: "300", variable: "--color-solarOrange-300" },
+            { name: "400", variable: "--color-solarOrange-400" },
+            { name: "500", variable: "--color-solarOrange-500" },
+            { name: "600", variable: "--color-solarOrange-600" },
+            { name: "700", variable: "--color-solarOrange-700" },
+            { name: "800", variable: "--color-solarOrange-800" },
+            { name: "900", variable: "--color-solarOrange-900" },
+          ]}
+        />
+
+        <ColorGroup
+          title="Chart Colors"
+          colors={[
+            { name: "Bordo", variable: "--color-chart-bordo" },
+            { name: "Red", variable: "--color-chart-red" },
+            { name: "Orange", variable: "--color-chart-orange" },
+            { name: "Yellow", variable: "--color-chart-yellow" },
+            { name: "Green", variable: "--color-chart-green" },
+            { name: "Blue", variable: "--color-chart-blue" },
+            { name: "Indigo", variable: "--color-chart-indigo" },
+            { name: "Purple", variable: "--color-chart-purple" },
+            { name: "Violet", variable: "--color-chart-violet" },
+            { name: "Pink", variable: "--color-chart-pink" },
+          ]}
+        />
+
+        <ColorGroup
+          title="Functional Colors"
+          colors={[
+            { name: "Input Default", variable: "--color-input-default" },
           ]}
         />
       </div>
