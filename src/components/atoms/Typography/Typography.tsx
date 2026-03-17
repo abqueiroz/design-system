@@ -19,6 +19,7 @@ const typographyVariants = cva('transition-colors text-primary-900', {
       "7xl": "typo-7xl",
       "8xl": "typo-8xl",
       "9xl": "typo-9xl",
+      "120pt": "typo-120pt",
     },
     $weight: {
       regular: "font-normal",

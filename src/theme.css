@@ -165,6 +165,12 @@
   --tracking-9xl: 0.02em;
   --font-weight-9xl: 400;
 
+  /* 120pt - 160px */
+  --font-size-120pt: 10rem;
+  --leading-120pt: 1;
+  --tracking-120pt: 0.01em;
+  --font-weight-120pt: 500;
+
   /* Weights Extras */
   --font-weight-regular: 400;
   --font-weight-medium: 500;

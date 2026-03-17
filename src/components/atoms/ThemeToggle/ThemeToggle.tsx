@@ -7,7 +7,7 @@ export function ThemeToggle() {
 
   return (
     <Button
-      $variant="ghost"
+      $variant="outline"
       $size="sm"
       onClick={toggleTheme}
       className="w-9 px-0"

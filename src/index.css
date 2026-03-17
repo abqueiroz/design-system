@@ -10,6 +10,8 @@
 }
 
 @utility typo-xs {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-xs);
   line-height: var(--leading-xs);
   letter-spacing: var(--tracking-xs);
@@ -17,6 +19,8 @@
 }
 
 @utility typo-sm {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-sm);
   line-height: var(--leading-sm);
   letter-spacing: var(--tracking-sm);
@@ -24,6 +28,8 @@
 }
 
 @utility typo-base {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-base);
   line-height: var(--leading-base);
   letter-spacing: var(--tracking-base);
@@ -31,6 +37,8 @@
 }
 
 @utility typo-lg {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-lg);
   line-height: var(--leading-lg);
   letter-spacing: var(--tracking-lg);
@@ -38,6 +46,8 @@
 }
 
 @utility typo-xl {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-xl);
   line-height: var(--leading-xl);
   letter-spacing: var(--tracking-xl);
@@ -45,6 +55,8 @@
 }
 
 @utility typo-2xl {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-2xl);
   line-height: var(--leading-2xl);
   letter-spacing: var(--tracking-2xl);
@@ -52,6 +64,8 @@
 }
 
 @utility typo-3xl {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-3xl);
   line-height: var(--leading-3xl);
   letter-spacing: var(--tracking-3xl);
@@ -59,6 +73,8 @@
 }
 
 @utility typo-4xl {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-4xl);
   line-height: var(--leading-4xl);
   letter-spacing: var(--tracking-4xl);
@@ -66,6 +82,8 @@
 }
 
 @utility typo-5xl {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-5xl);
   line-height: var(--leading-5xl);
   letter-spacing: var(--tracking-5xl);
@@ -73,6 +91,8 @@
 }
 
 @utility typo-6xl {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-6xl);
   line-height: var(--leading-6xl);
   letter-spacing: var(--tracking-6xl);
@@ -80,6 +100,8 @@
 }
 
 @utility typo-7xl {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-7xl);
   line-height: var(--leading-7xl);
   letter-spacing: var(--tracking-7xl);
@@ -87,6 +109,8 @@
 }
 
 @utility typo-8xl {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-8xl);
   line-height: var(--leading-8xl);
   letter-spacing: var(--tracking-8xl);
@@ -94,22 +118,27 @@
 }
 
 @utility typo-9xl {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+
   font-size: var(--font-size-9xl);
   line-height: var(--leading-9xl);
   letter-spacing: var(--tracking-9xl);
   font-weight: var(--font-weight-9xl);
 }
 
-
-
-
+@utility typo-120pt {
+  font-family: "Google Sans Flex 120pt", var(--font-sans);
+  font-size: var(--font-size-120pt);
+  line-height: var(--leading-120pt);
+  letter-spacing: var(--tracking-120pt);
+  font-weight: var(--font-weight-120pt);
+}
 
 @layer base {
   html {
     font-family: var(--font-family-body);
   }
 }
-
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {

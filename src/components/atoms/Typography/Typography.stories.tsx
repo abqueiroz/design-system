@@ -28,6 +28,7 @@ const meta: Meta<TypographyProps> = {
         "7xl",
         "8xl",
         "9xl",
+        "120pt",
       ],
     },
     $weight: {
@@ -69,6 +70,7 @@ export const AllVariants: Story = {
       "7xl",
       "8xl",
       "9xl",
+      "120pt",
     ] as const;
 
     return (
@@ -109,7 +111,9 @@ export const AllVariants: Story = {
                                         ? "96px"
                                         : variant === "9xl"
                                           ? "128px"
-                                          : ""}
+                                          : variant === "120pt"
+                                            ? "160px"
+                                            : ""}
               </span>
             </div>
             <Typography $variant={variant}>
@@ -146,7 +150,7 @@ export const InteractiveTheme: Story = {
             </Typography>
           </div>
           <Button
-            $variant="ghost"
+            $variant="outline"
             $size="sm"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
