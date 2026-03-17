@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../Button/Button";
+import { ThemeToggle } from "../ThemeToggle";
 import { Mail, ArrowRight, Plus, Settings } from "lucide-react";
 import { useTheme, ThemeProvider } from '../../../hooks/use-theme';
 
@@ -249,15 +250,9 @@ export const LightAndDarkToggler: Story = {
       >
         <div className="flex items-center gap-4 mb-4">
           <span className="text-foreground text-2xl font-bold">
-            Theme: {theme}
+            Theme Status:
           </span>
-          <Button
-            $variant="outlineSecondary"
-            $size="sm"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          >
-            Toggle theme
-          </Button>
+          <ThemeToggle />
         </div>
 
         <div className="grid grid-cols-2 gap-4 w-full">
