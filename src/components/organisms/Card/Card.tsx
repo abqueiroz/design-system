@@ -24,18 +24,18 @@ function Card({
   return (
     <div
       className={cn(
-        'flex flex-col rounded-2xl overflow-hidden border border-outline-1 bg-surface-1 min-w-75 max-w-85 shadow-elevation-1',
+        'flex flex-col rounded-2xl overflow-hidden border border-primary-100 bg-primary-50 min-w-75 max-w-85 shadow-level-1',
         className
       )}
       {...rest}
     >
       {/* Image / Header Area */}
-      <div className="relative h-48 bg-surface-2 flex items-center justify-center">
+      <div className="relative h-48 bg-primary-100 flex items-center justify-center">
         {image ? (
           <img src={image} alt={typeof title === 'string' ? title : 'Card Image'} className="w-full h-full object-cover" />
         ) : (
-          <div className="size-16 flex items-center justify-center bg-surface-3">
-            <ImageIcon className="size-8 text-text-disabled" />
+          <div className="size-16 flex items-center justify-center bg-primary-200">
+            <ImageIcon className="size-8 text-primary-400" />
           </div>
         )}
       </div>
@@ -45,18 +45,18 @@ function Card({
         {/* Texts */}
         <div className="flex flex-col gap-1">
           {title && (
-            <Typography $variant="xl" $weight="semibold">
+            <Typography $variant="xl" $weight="semibold" className="text-primary-900">
               {title}
             </Typography>
           )}
           {subhead && (
-            <Typography $variant="base">
+            <Typography $variant="base" className="text-primary-600">
               {subhead}
             </Typography>
           )}
           {description && (
             <div className="mt-2">
-              <Typography $variant="sm" className="leading-relaxed text-text-secondary">
+              <Typography $variant="sm" className="leading-relaxed text-primary-600">
                 {description}
               </Typography>
             </div>

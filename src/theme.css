@@ -328,25 +328,4 @@
   --shadow-level-5:
     0 4px 48px 1px var(--shadow-key-color),
     0 48px 96px 8px var(--shadow-ambient-color);
-
-  /* --- SEMANTIC COLORS (DARK) --- */
-  --color-text-primary: var(--color-primary-900);
-  --color-text-secondary: var(--color-primary-600);
-  --color-text-disabled: var(--color-primary-400);
-  --color-text-placeholder: var(--color-primary-300);
-
-  --color-surface-1: var(--color-primary-50);
-  --color-surface-2: var(--color-primary-100);
-  --color-surface-3: var(--color-primary-200);
-  --color-surface-4: var(--color-primary-300);
-  --color-surface-5: var(--color-primary-400);
-
-  --color-background: var(--color-surface-1);
-  --color-foreground: var(--color-text-primary);
-
-  --color-outline-1: var(--color-primary-100);
-  --color-outline-2: var(--color-primary-200);
-  --color-outline-3: var(--color-primary-300);
-
-  --color-action-selected: var(--color-primary-100);
 }
