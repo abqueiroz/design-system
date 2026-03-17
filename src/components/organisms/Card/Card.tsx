@@ -2,8 +2,8 @@ import { cn } from '../../../lib/utils'
 import type { CardProps } from './'
 import { Typography } from '@/components/atoms/Typography'
 import { Button } from '@/components/atoms/Button'
-import { Chip } from '@/components/molecules/Chip'
 import { ImageIcon } from 'lucide-react'
+import { Badge } from '../../molecules/'
 // import { Popover, PopoverContent, PopoverTrigger } from '../../primitives/popover'
 // Note: Popover components are missing in the current structure.
 
@@ -45,36 +45,35 @@ function Card({
         {/* Texts */}
         <div className="flex flex-col gap-1">
           {title && (
-            <Typography variant="h3" weight="semibold" color="primary">
+            <Typography $variant="xl" $weight="semibold">
               {title}
             </Typography>
           )}
           {subhead && (
-            <Typography variant="body-1" color="primary">
+            <Typography $variant="base">
               {subhead}
             </Typography>
           )}
           {description && (
             <div className="mt-2">
-              <Typography variant="body-2" color="secondary" className="leading-relaxed">
+              <Typography $variant="sm" className="leading-relaxed text-text-secondary">
                 {description}
               </Typography>
             </div>
           )}
         </div>
 
-        {/* Labels / Chips */}
+        {/* Labels / Badges */}
         {labels && labels.length > 0 && (
           <div className="flex flex-row flex-wrap gap-2">
             {labels.map((label) => (
-              <Chip
+              <Badge
                 key={label}
-                label={label}
-                variant="subtle"
-                color="default"
-                size="sm"
-                className="bg-surface-3 text-text-primary px-3 font-medium"
-              />
+                $color="gray"
+                $size="sm"
+              >
+                {label}
+              </Badge>
             ))}
           </div>
         )}
@@ -83,12 +82,12 @@ function Card({
         {(primaryButtonText || secondaryButtonText) && (
           <div className="flex flex-row justify-end gap-3 mt-1">
             {secondaryButtonText && (
-              <Button variant="outlined" onClick={onSecondaryButtonClick}>
+              <Button $variant="outline" onClick={onSecondaryButtonClick}>
                 {secondaryButtonText}
               </Button>
             )}
             {primaryButtonText && (
-              <Button variant="primary" onClick={onPrimaryButtonClick}>
+              <Button $variant="primary" onClick={onPrimaryButtonClick}>
                 {primaryButtonText}
               </Button>
             )}

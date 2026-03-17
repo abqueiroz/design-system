@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Card } from './Card'
-import { useTheme } from '@/hooks'
-import { Button } from '@/components/atoms/Button'
+import { useTheme } from '../../../hooks/use-theme'
+import { Button } from '../../atoms'
+
 
 const meta = {
   title: 'organisms/Card',
@@ -75,8 +76,8 @@ export const WithThemeToggler: Story = {
             Theme: {theme}
           </span>
           <Button
-            variant="outlined"
-            size="sm"
+            $variant="outline"
+            $size="sm"
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
           >
             Toggle theme
