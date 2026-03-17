@@ -3,81 +3,84 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
 
-const typographyVariants = cva('transition-colors', {
+const typographyVariants = cva('transition-colors text-primary-900', {
   variants: {
-    variant: {
-      'display-1': 'typo-display-1',
-      'display-2': 'typo-display-2',
-      'display-3': 'typo-display-3',
-      h1: 'typo-h1',
-      h2: 'typo-h2',
-      h3: 'typo-h3',
-      'body-1': 'typo-body-1',
-      'body-2': 'typo-body-2',
-      caption: 'typo-caption',
-      'button-1': 'typo-button-1',
-      'button-2': 'typo-button-2',
-      link: 'typo-link',
+    $variant: {
+      xs: "typo-xs",
+      sm: "typo-sm",
+      base: "typo-base",
+      lg: "typo-lg",
+      xl: "typo-xl",
+      "2xl": "typo-2xl",
+      "3xl": "typo-3xl",
+      "4xl": "typo-4xl",
+      "5xl": "typo-5xl",
+      "6xl": "typo-6xl",
+      "7xl": "typo-7xl",
+      "8xl": "typo-8xl",
+      "9xl": "typo-9xl",
     },
-    weight: {
-      regular: 'font-normal',
-      medium: 'font-medium',
-      semibold: 'font-semibold',
-      bold: 'font-bold',
-      extrabold: 'font-extrabold',
+    $weight: {
+      regular: "font-normal",
+      medium: "font-medium",
+      semibold: "font-semibold",
+      bold: "font-bold",
+      extrabold: "font-extrabold",
     },
-    color: {
-      primary: 'text-text-primary',
-      secondary: 'text-text-secondary',
-      muted: 'text-text-disabled',
-      error: 'text-error-main',
-      success: 'text-success-main',
-      warning: 'text-warning-main',
-      info: 'text-primary-main',
-      white: 'text-surface-1',
-    },
-    align: {
-      left: 'text-left',
-      center: 'text-center',
-      right: 'text-right',
-      justify: 'text-justify',
+    $align: {
+      left: "text-left",
+      center: "text-center",
+      right: "text-right",
+      justify: "text-justify",
     },
   },
   defaultVariants: {
-    variant: 'body-1',
-    color: 'primary',
-    align: 'left',
-    weight: 'regular',
+    $variant: "base",
+    $align: "left",
+    $weight: "regular",
   },
-})
+});
 
-export interface TypographyProps
-  extends Omit<React.HTMLAttributes<HTMLElement>, 'color' | 'align'>,
-  VariantProps<typeof typographyVariants> {
-  as?: React.ElementType
-  asChild?: boolean
-  htmlFor?: string
+export interface TypographyProps extends VariantProps<typeof typographyVariants>,
+  Omit<React.HTMLAttributes<HTMLElement>, "color" | "align"> {
+  $as?: React.ElementType
+  isAsChild?: boolean;
+  htmlFor?: string;
 }
 
 const Typography = React.forwardRef<HTMLElement, TypographyProps>(
   (
-    { className, variant, weight, color, align, as, asChild = false, ...props },
+    {
+      className,
+      $variant,
+      $weight,
+      $align,
+      $as,
+      isAsChild = false,
+      ...props
+    },
     ref
   ) => {
-    const Comp = 'span'
+    const Comp = $as || "span";
 
     return (
       <Comp
         ref={ref}
         className={cn(
-          typographyVariants({ variant, weight, color, align, className })
+          typographyVariants({
+            $variant,
+            $weight,
+            $align,
+            className,
+          })
         )}
         {...props}
       />
-    )
+    );
   }
-)
+);
 
-Typography.displayName = 'Typography'
+Typography.displayName = "Typography";
 
-export { Typography, typographyVariants }
+export { Typography, typographyVariants };
+

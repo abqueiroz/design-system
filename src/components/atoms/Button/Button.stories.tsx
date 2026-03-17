@@ -12,26 +12,27 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    variant: {
+    $variant: {
       control: "select",
-      options: [
-        "primary",
-        "error",
-        "secondary",
-        "outlined",
-        "outlined-secondary",
-        "text",
-        "text-error",
-      ],
+      options: ["primary", "secondary", "outline", "ghost", "danger"],
     },
-    size: {
+    $size: {
       control: "select",
-      options: ["default", "sm", "icon", "icon-sm"],
+      options: ["sm", "md", "lg", "icon"],
     },
-    disabled: {
+    $fullWidth: {
       control: "boolean",
     },
-    loading: {
+    $loading: {
+      control: "boolean",
+    },
+    $leftIcon: {
+      control: "text",
+    },
+    $rightIcon: {
+      control: "text",
+    },
+    disabled: {
       control: "boolean",
     },
   },
@@ -42,120 +43,102 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: "Button",
-    variant: "primary",
-  },
-};
-
-export const Error: Story = {
-  args: {
-    children: "Button",
-    variant: "error",
+    children: "Primary Button",
+    $variant: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: "Button",
-    variant: "secondary",
+    children: "Secondary Button",
+    $variant: "secondary",
   },
 };
 
-export const Outlined: Story = {
+export const Outline: Story = {
   args: {
-    children: "Button",
-    variant: "outlined",
+    children: "Outline Button",
+    $variant: "outline",
   },
 };
 
-export const OutlinedSecondary: Story = {
+export const Ghost: Story = {
   args: {
-    children: "Button",
-    variant: "outlined-secondary",
+    children: "Ghost Button",
+    $variant: "ghost",
   },
 };
 
-export const Text: Story = {
+export const Danger: Story = {
   args: {
-    children: "Button",
-    variant: "text",
+    children: "Danger Button",
+    $variant: "danger",
   },
 };
 
-export const TextError: Story = {
+export const Small: Story = {
   args: {
-    children: "Button",
-    variant: "text-error",
+    children: "Small",
+    $size: "sm",
   },
 };
 
-export const Loading: Story = {
+export const Large: Story = {
   args: {
-    children: "Button",
-    loading: true,
+    children: "Large",
+    $size: "lg",
+  },
+};
+
+export const FullWidth: Story = {
+  args: {
+    children: "Full Width Button",
+    $fullWidth: true,
   },
 };
 
 export const WithIcons: Story = {
   args: {
     children: "With Icons",
-    leftIcon: <Mail />,
-    rightIcon: <ArrowRight />,
+    $leftIcon: <Mail size={16} />,
+    $rightIcon: <ArrowRight size={16} />,
   },
 };
 
-export const LeftIconOnly: Story = {
+export const IconOnly: Story = {
   args: {
-    children: "Left Icon",
-    leftIcon: <Plus />,
+    children: <Plus size={20} />,
+    $size: "icon",
+    "aria-label": "Add item",
   },
 };
 
-export const RightIconOnly: Story = {
+export const Loading: Story = {
   args: {
-    children: "Right Icon",
-    rightIcon: <LogOut />,
-  },
-};
-
-export const AsChild: Story = {
-  args: {
-    asChild: true,
-    children: (
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        Link as Button
-      </a>
-    ),
+    children: "Loading Button",
+    $loading: true,
   },
 };
 
 export const FigmaGallery: Story = {
   render: () => {
-    const variants = [
-      "primary",
-      "error",
-      "secondary",
-      "outlined",
-      "outlined-secondary",
-      "text",
-      "text-error",
-    ] as const;
-    const sizes = ["default", "sm"] as const;
-    const states = ["Default", "Disabled", "Loading", "Icon"] as const;
+    const variants = ["primary", "secondary", "outline", "ghost", "danger"] as const;
+    const sizes = ["sm", "md", "lg"] as const;
+    const states = ["Default", "Disabled", "Loading", "Full Width", "Icon"] as const;
 
     return (
       <div className="flex flex-col gap-8 p-8 bg-surface-1">
         {sizes.map((size) => (
           <div key={size} className="flex flex-col gap-4">
-            <h3 className="text-xl font-bold">
-              {size === "default" ? "40px" : "32px"}
+            <h3 className="text-xl font-bold uppercase text-primary-900 border-b pb-2">
+              Size: {size}
             </h3>
-            <div className="grid grid-cols-[100px_repeat(7,1fr)] gap-4 items-center">
+            <div className="grid grid-cols-[120px_repeat(5,1fr)] gap-6 items-center">
               <div />
               {variants.map((v) => (
                 <div
                   key={v}
-                  className="text-center text-xs font-medium text-text-secondary"
+                  className="text-center text-xs font-bold uppercase tracking-wider text-primary-600"
                 >
                   {v}
                 </div>
@@ -163,7 +146,7 @@ export const FigmaGallery: Story = {
 
               {states.map((state) => (
                 <React.Fragment key={state}>
-                  <div className="text-sm font-medium text-text-secondary">
+                  <div className="text-sm font-medium text-primary-900">
                     {state}
                   </div>
                   {variants.map((variant) => (
@@ -172,14 +155,12 @@ export const FigmaGallery: Story = {
                       className="flex justify-center"
                     >
                       <Button
-                        variant={variant}
-                        size={size}
+                        $variant={variant}
+                        $size={size}
+                        $fullWidth={state === "Full Width"}
+                        $loading={state === "Loading"}
+                        $leftIcon={state === "Icon" ? <Plus size={16} /> : undefined}
                         disabled={state === "Disabled"}
-                        loading={state === "Loading"}
-                        leftIcon={state === "Icon" ? <Plus /> : undefined}
-                        rightIcon={
-                          state === "Icon" ? <ArrowRight /> : undefined
-                        }
                       >
                         Button
                       </Button>
@@ -198,13 +179,13 @@ export const FigmaGallery: Story = {
 export const LightAndDarkToggler: Story = {
   args: {
     children: "Button",
-    variant: "primary",
+    $variant: "primary",
   },
   render: (args) => {
     const { theme, setTheme } = useTheme();
     return (
       <div
-        className={`flex gap-4 p-8 flex-col w-[600px] rounded-lg justify-center items-center transition-colors ${theme === "light" ? "bg-white" : "bg-slate-950"
+        className={`flex gap-4 p-8 flex-col w-150 rounded-lg justify-center items-center transition-colors ${theme === "light" ? "bg-white" : "bg-slate-950"
           }`}
       >
         <div className="flex items-center gap-4 mb-4">
@@ -212,8 +193,8 @@ export const LightAndDarkToggler: Story = {
             Theme: {theme}
           </span>
           <Button
-            variant="outlined"
-            size="sm"
+            $variant="outline"
+            $size="sm"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             Toggle theme
@@ -221,26 +202,23 @@ export const LightAndDarkToggler: Story = {
         </div>
 
         <div className="grid grid-cols-2 gap-4 w-full">
-          <Button {...args} variant="primary">
+          <Button {...args} $variant="primary">
             Primary
           </Button>
-          <Button {...args} variant="error">
-            Error
-          </Button>
-          <Button {...args} variant="secondary">
+          <Button {...args} $variant="secondary">
             Secondary
           </Button>
-          <Button {...args} variant="outlined">
-            Outlined
+          <Button {...args} $variant="outline">
+            Outline
           </Button>
-          <Button {...args} variant="outlined-secondary">
-            Outlined Secondary
+          <Button {...args} $variant="ghost">
+            Ghost
           </Button>
-          <Button {...args} variant="text">
-            Text
+          <Button {...args} $variant="danger">
+            Danger
           </Button>
-          <Button {...args} variant="text-error">
-            Text Error
+          <Button {...args} $variant="primary" $fullWidth>
+            Full Width
           </Button>
         </div>
       </div>
@@ -256,32 +234,16 @@ export const ThemeOverrideInteractive: Story = {
 
     const customTheme = {
       light: {
-        "primary-main": "oklch(60% 0.15 30)", // Reddish/orange
-        "primary-hover": "oklch(65% 0.15 30)",
-        "text-primary": "oklch(20% 0.05 30)",
+        "primary-900": "oklch(60% 0.15 30)", // Reddish/orange
+        "primary-800": "oklch(65% 0.15 30)",
+        "red-600": "oklch(45% 0.2 25)",      // Darker red for danger
       },
       dark: {
-        "primary-main": "oklch(70% 0.15 130)",
-        "primary-hover": "oklch(75% 0.15 130)",
-        "text-primary": "oklch(95% 0.05 130)",
+        "primary-900": "oklch(70% 0.15 130)", // Greenish
+        "primary-800": "oklch(75% 0.15 130)",
       },
       radius: {
-        "btn-pill": "4px", // Squared instead of pill
-        "teardrop-tl": "4px",
-      },
-      spacing: {
-        "btn-h": "48px", // Taller buttons
-        "btn-px": "32px", // Wider horizontal padding
-      },
-      typography: {
-        "font-size-body-1": "36pt",
-        "leading-body-1": "10rem",
-        "tracking-body-1": "0.006em",
-        "font-size-body-2": "48pt",
-        "leading-body-2": "8.25rem",
-        "tracking-body-2": "0.003em",
-        "font-weight-regular": "400",
-        "font-weight-medium": "500",
+        "md": "2px", // Squarer rounded-md
       },
     };
 
@@ -296,7 +258,7 @@ export const ThemeOverrideInteractive: Story = {
           </p>
 
           <Button
-            variant={isApplied ? "error" : "primary"}
+            $variant={isApplied ? "danger" : "primary"}
             onClick={() => setIsApplied(!isApplied)}
           >
             {isApplied ? "Reset Theme" : "Apply Orange Theme"}
@@ -316,17 +278,17 @@ export const ThemeOverrideInteractive: Story = {
               Preview Area (Scoped)
             </h3>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary">Primary Button</Button>
-              <Button variant="secondary">Secondary</Button>
-              <Button variant="outlined">Outlined</Button>
-              <Button variant="text">Text</Button>
+              <Button $variant="primary">Primary Button</Button>
+              <Button $variant="secondary">Secondary</Button>
+              <Button $variant="outline">Outline</Button>
+              <Button $variant="ghost">Ghost</Button>
             </div>
 
             <div className="dark p-8 bg-slate-950 rounded-xl space-y-4">
               <p className="text-slate-400 text-sm">Dark Mode Preview</p>
               <div className="flex flex-wrap gap-4">
-                <Button variant="primary">Dark Primary</Button>
-                <Button variant="outlined">Dark Outlined</Button>
+                <Button $variant="primary">Dark Primary</Button>
+                <Button $variant="outline">Dark Outline</Button>
               </div>
             </div>
           </div>

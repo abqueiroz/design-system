@@ -61,7 +61,7 @@ export const Palette: Story = {
               <span className="text-sm font-black text-primary-600 uppercase tracking-tight dark:text-primary-400">{theme}</span>
             </div>
             <Button
-              variant="outlined"
+              $variant="ghost"
               onClick={toggleTheme}
               className="min-w-32"
             >

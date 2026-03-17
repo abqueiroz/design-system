@@ -153,7 +153,7 @@ export const ToggleTheme: Story = {
           ` ${theme === "light" ? "bg-white" : "bg-slate-950"} border-slate-200`
         )}
       >
-        <Button onClick={toggleTheme} variant='outlined'>
+        <Button onClick={toggleTheme} $variant='ghost'>
           Toggle Theme
         </Button>
         <div className='flex flex-col gap-8'>

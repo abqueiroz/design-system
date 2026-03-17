@@ -83,101 +83,87 @@
   --color-chart-purple: #6d3bd2;
   --color-chart-violet: #b026c9;
   --color-chart-pink: #e14c8d;
-  /* Input */
-  --color-input-default: oklch(0.5677 0.0137 259.82);
-  /* Display 1 */
-  --font-size-display-1: 5rem;
-  /* 80px */
-  --leading-display-1: 5.75rem;
-  /* 92px */
-  --tracking-display-1: -0.046em;
-  /* -0.75px */
 
-  /* Display 2 */
-  --font-size-display-2: 4rem;
-  /* 64px */
-  --leading-display-2: 4.75rem;
-  /* 76px */
-  --tracking-display-2: -0.015em;
-  /* -0.25px */
+  /* --- TYPOGRAPHY --- */
+  --font-family-body: "Google Sans Flex 120pt", var(--font-sans);
 
-  /* Display 3 */
-  --font-size-display-3: 2.5rem;
-  /* 40px */
-  --leading-display-3: 2.875rem;
-  /* 46px */
-  --tracking-display-3: 0em;
+  /* xs - 12px */
+  --font-size-xs: 0.75rem;
+  --leading-xs: 1.25;
+  --tracking-xs: 0.02em;
+  --font-weight-xs: 500;
 
-  /* Heading 1 */
-  --font-size-h1: 2rem;
-  /* 32px */
-  --leading-h1: 2.5rem;
-  /* 40px */
-  --font-weight-h1: 500;
+  /* sm - 14px */
+  --font-size-sm: 0.875rem;
+  --leading-sm: 1.25;
+  --tracking-sm: 0.02em;
+  --font-weight-sm: 400;
 
-  /* Heading 2 */
-  --font-size-h2: 1.5rem;
-  /* 24px */
-  --leading-h2: 1.75rem;
-  /* 28px */
-  --font-weight-h2: 500;
+  /* base - 16px */
+  --font-size-base: 1rem;
+  --leading-base: 1.5;
+  --tracking-base: 0.02em;
+  --font-weight-base: 400;
 
-  /* Heading 3 */
-  --font-size-h3: 1.125rem;
-  /* 18px */
-  --leading-h3: 1.5rem;
-  /* 24px */
-  --font-weight-h3: 500;
+  /* lg - 18px */
+  --font-size-lg: 1.125rem;
+  --leading-lg: 1.5;
+  --tracking-lg: 0.02em;
+  --font-weight-lg: 400;
 
-  /* Body 1 / Button 1 / Link */
-  --font-size-body-1: 1rem;
-  /* 16px */
-  --leading-body-1: 1.5rem;
-  /* 24px */
-  --tracking-body-1: 0.006em;
-  /* 0.1px */
+  /* xl - 20px */
+  --font-size-xl: 1.25rem;
+  --leading-xl: 1.5;
+  --tracking-xl: 0.02em;
+  --font-weight-xl: 500;
 
-  /* Body 2 / Button 2 */
-  --font-size-body-2: 0.875rem;
-  /* 14px */
-  --leading-body-2: 1.25rem;
-  /* 20px */
-  --tracking-body-2: 0.003em;
-  /* 0.05px */
+  /* 2xl - 24px */
+  --font-size-2xl: 1.5rem;
+  --leading-2xl: 1.5;
+  --tracking-2xl: 0.02em;
+  --font-weight-2xl: 500;
 
-  /* Caption */
-  --font-size-caption: 0.75rem;
-  /* 12px */
-  --leading-caption: 1rem;
-  /* 16px */
-  --tracking-caption: 0.008em;
-  /* 0.1px */
+  /* 3xl - 32px */
+  --font-size-3xl: 2rem;
+  --leading-3xl: 1.25;
+  --tracking-3xl: 0.02em;
+  --font-weight-3xl: 500;
 
-  /* Button 1 */
-  --font-size-button-1: 1rem;
-  /* 16px */
-  --leading-button-1: 1.5rem;
-  /* 24px */
-  --tracking-button-1: 0.006em;
-  /* 0.1px */
-  --font-weight-button-1: 500;
+  /* 4xl - 36px */
+  --font-size-4xl: 2.25rem;
+  --leading-4xl: 1.25;
+  --tracking-4xl: 0.02em;
+  --font-weight-4xl: 400;
 
-  /* Button 2 */
-  --font-size-button-2: 0.875rem;
-  /* 14px */
-  --leading-button-2: 1.25rem;
-  /* 20px */
-  --tracking-button-2: 0.003em;
-  /* 0.05px */
-  --font-weight-button-2: 400;
+  /* 5xl - 48px */
+  --font-size-5xl: 3rem;
+  --leading-5xl: 1;
+  --tracking-5xl: 0.02em;
+  --font-weight-5xl: 400;
 
-  /* Link */
-  --font-size-link: 1rem;
-  /* 16px */
-  --leading-link: 1.25rem;
-  /* 20px */
-  --tracking-link: 0em;
-  /* 0px */
+  /* 6xl - 60px */
+  --font-size-6xl: 3.75rem;
+  --leading-6xl: 1;
+  --tracking-6xl: 0.02em;
+  --font-weight-6xl: 400;
+
+  /* 7xl - 72px */
+  --font-size-7xl: 4.5rem;
+  --leading-7xl: 1;
+  --tracking-7xl: 0.02em;
+  --font-weight-7xl: 400;
+
+  /* 8xl - 96px */
+  --font-size-8xl: 6rem;
+  --leading-8xl: 1;
+  --tracking-8xl: 0.02em;
+  --font-weight-8xl: 400;
+
+  /* 9xl - 128px */
+  --font-size-9xl: 8rem;
+  --leading-9xl: 1;
+  --tracking-9xl: 0.02em;
+  --font-weight-9xl: 400;
 
   /* Weights Extras */
   --font-weight-regular: 400;
@@ -336,4 +322,25 @@
   --shadow-level-5:
     0 4px 48px 1px var(--shadow-key-color),
     0 48px 96px 8px var(--shadow-ambient-color);
+
+  /* --- SEMANTIC COLORS (DARK) --- */
+  --color-text-primary: var(--color-primary-900);
+  --color-text-secondary: var(--color-primary-600);
+  --color-text-disabled: var(--color-primary-400);
+  --color-text-placeholder: var(--color-primary-300);
+
+  --color-surface-1: var(--color-primary-50);
+  --color-surface-2: var(--color-primary-100);
+  --color-surface-3: var(--color-primary-200);
+  --color-surface-4: var(--color-primary-300);
+  --color-surface-5: var(--color-primary-400);
+
+  --color-background: var(--color-surface-1);
+  --color-foreground: var(--color-text-primary);
+
+  --color-outline-1: var(--color-primary-100);
+  --color-outline-2: var(--color-primary-200);
+  --color-outline-3: var(--color-primary-300);
+
+  --color-action-selected: var(--color-primary-100);
 }
