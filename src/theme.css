@@ -11,6 +11,7 @@
   --color-primary-200: #d0d4da;
   --color-primary-100: #e6e8eb;
   --color-primary-50: #f3f4f6;
+  --color-primary-0: #ffffff;
 
   /* Red */
   --color-red-900: #8b1a1a;
@@ -247,6 +248,7 @@
   --color-primary-200: #3a3f46;
   --color-primary-100: #1c1f24;
   --color-primary-50: #0f1115;
+  --color-primary-0: #252525;
 
   /* Red */
   --color-red-900: #faecec;

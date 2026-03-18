@@ -61,7 +61,7 @@ export const Palette: Story = {
               <span className="text-sm font-black text-primary-600 uppercase tracking-tight dark:text-primary-400">{theme}</span>
             </div>
             <Button
-              $variant="ghost"
+              $variant="outline"
               onClick={toggleTheme}
               className="min-w-32"
             >
@@ -73,6 +73,7 @@ export const Palette: Story = {
         <ColorGroup
           title="Primary (Grayscale)"
           colors={[
+            { name: "0", variable: "--color-primary-0" },
             { name: "50", variable: "--color-primary-50" },
             { name: "100", variable: "--color-primary-100" },
             { name: "200", variable: "--color-primary-200" },

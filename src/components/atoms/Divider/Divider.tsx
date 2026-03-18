@@ -56,9 +56,9 @@ const Divider = React.forwardRef<
         <div
           ref={ref}
           className={cn(
-            'shrink-0 bg-outline-1 transition-all duration-300',
+            'shrink-0 bg-primary-200 transition-all duration-300',
             $orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
-            'bg-linear-to-r from-transparent via-outline-1 to-transparent opacity-60',
+            'bg-linear-to-r from-transparent via-primary-200 to-transparent opacity-60',
             className
           )}
           {...props}
@@ -78,9 +78,9 @@ const Divider = React.forwardRef<
       >
         <div
           className={cn(
-            'shrink-0 bg-outline-1 transition-all duration-300',
+            'shrink-0 bg-primary-200 transition-all duration-300',
             $orientation === 'horizontal' ? 'h-px' : 'w-px',
-            'bg-linear-to-r from-transparent via-outline-1 to-transparent opacity-60',
+            'bg-linear-to-r from-transparent via-primary-200 to-transparent opacity-60',
             $orientation === 'horizontal'
               ? activePosition === 'left'
                 ? 'w-[10%]'
@@ -96,7 +96,7 @@ const Divider = React.forwardRef<
         />
         <span
           className={cn(
-            'text-sm font-medium text-text-secondary whitespace-nowrap',
+            'text-sm font-medium text-primary-500 whitespace-nowrap',
             $orientation === 'horizontal' ? 'px-3' : 'py-3'
           )}
         >
@@ -104,9 +104,9 @@ const Divider = React.forwardRef<
         </span>
         <div
           className={cn(
-            'shrink-0 bg-outline-1 transition-all duration-300',
+            'shrink-0 bg-primary-200 transition-all duration-300',
             $orientation === 'horizontal' ? 'h-px' : 'w-px',
-            'bg-linear-to-r from-transparent via-outline-1 to-transparent opacity-60',
+            'bg-linear-to-r from-transparent via-primary-200 to-transparent opacity-60',
             $orientation === 'horizontal'
               ? activePosition === 'left'
                 ? 'flex-1'
