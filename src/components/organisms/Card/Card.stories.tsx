@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Card } from './Card'
-import { useTheme } from '../../../hooks/use-theme'
-import { Button } from '../../atoms'
+import { Button, Typography, useTheme } from '../../../'
 
 
 const meta = {
@@ -66,19 +65,20 @@ export const WithThemeToggler: Story = {
     ...Default.args,
   },
   render: (args) => {
-    const { theme, setTheme } = useTheme()
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { theme, toggleTheme } = useTheme()
     return (
       <div
-        className={`flex gap-6 p-8 flex-col rounded-lg justify-center items-center transition-colors min-h-75 ${theme === 'light' ? 'bg-white' : 'bg-slate-950'} ${theme === 'dark' ? 'dark' : ''}`}
+        className={`flex gap-6 p-8 flex-col rounded-2xl justify-center items-center transition-colors duration-300 min-h-75 bg-primary-0 shadow-lg border border-outline-1`}
       >
         <div className="flex items-center gap-4 mb-4">
-          <span className="text-primary-main text-2xl font-bold uppercase tracking-widest">
+          <Typography $variant="2xl" $weight="bold" className="text-primary-main uppercase tracking-widest">
             Theme: {theme}
-          </span>
+          </Typography>
           <Button
             $variant="outline"
             $size="sm"
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            onClick={toggleTheme}
           >
             Toggle theme
           </Button>

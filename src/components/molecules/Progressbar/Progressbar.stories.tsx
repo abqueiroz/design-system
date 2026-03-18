@@ -1,8 +1,7 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { cn } from '../../../lib/utils'
-import { useTheme } from '../../../hooks'
-import { Button } from '../../atoms/Button/Button'
+import { Button, Typography, useTheme } from '../../../'
 import { ProgressBar } from './Progressbar'
 
 const meta = {
@@ -68,21 +67,21 @@ export const Sizes: Story = {
   render: (args) => (
     <div className='flex flex-col gap-6 w-[400px]'>
       <div className='space-y-1.5'>
-        <span className='text-xs font-medium text-text-secondary'>
+        <Typography $variant='xs' $weight='medium' className='text-text-secondary'>
           Small (sm)
-        </span>
+        </Typography>
         <ProgressBar {...args} size='sm' />
       </div>
       <div className='space-y-1.5'>
-        <span className='text-xs font-medium text-text-secondary'>
+        <Typography $variant='xs' $weight='medium' className='text-text-secondary'>
           Medium (md)
-        </span>
+        </Typography>
         <ProgressBar {...args} size='md' />
       </div>
       <div className='space-y-1.5'>
-        <span className='text-xs font-medium text-text-secondary'>
+        <Typography $variant='xs' $weight='medium' className='text-text-secondary'>
           Large (lg)
-        </span>
+        </Typography>
         <ProgressBar {...args} size='lg' />
       </div>
     </div>
@@ -107,8 +106,10 @@ export const Interactive: Story = {
     value: 0,
   },
   render: (args) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [progress, setProgress] = React.useState(0)
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     React.useEffect(() => {
       const timer = setInterval(() => {
         setProgress((prev) => (prev >= 100 ? 0 : prev + 10))
@@ -125,12 +126,13 @@ export const Interactive: Story = {
           showValue
         />
         <div className='flex justify-center'>
-          <button
+          <Button
             onClick={() => setProgress(0)}
-            className='px-3 py-1 text-xs bg-primary-main text-white rounded-md hover:bg-primary-hover transition-colors'
+            $variant='primary'
+            $size='xs'
           >
             Reset Progress
-          </button>
+          </Button>
         </div>
       </div>
     )
@@ -145,22 +147,22 @@ export const ToggleTheme: Story = {
     className: 'w-[400px]',
   },
   render: (args) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { toggleTheme, theme } = useTheme()
     return (
       <div
         className={cn(
-          'p-12 rounded-xl transition-all duration-500 border-2 border-dashed',
-          ` ${theme === "light" ? "bg-white" : "bg-slate-950"} border-slate-200`
+          'p-12 rounded-xl transition-all duration-500 border border-outline-1 bg-primary-0 shadow-lg'
         )}
       >
-        <Button onClick={toggleTheme} $variant='ghost'>
+        <Button onClick={toggleTheme} $variant='outline' className="mb-8">
           Toggle Theme
         </Button>
         <div className='flex flex-col gap-8'>
           <div className='flex items-center justify-between'>
-            <span className='text-sm font-bold uppercase tracking-widest text-slate-500'>
+            <Typography $variant='sm' $weight='bold' className='uppercase tracking-widest text-text-secondary'>
               Current Theme: {theme}
-            </span>
+            </Typography>
           </div>
           <ProgressBar {...args} />
           <ProgressBar {...args} value={null} label='Indeterminate State' />

@@ -166,8 +166,8 @@ export const Controlled: Story = {
           placeholder="Select a fruit..."
           label="Controlled Select"
         />
-        <div className="p-4 bg-primary-50 dark:bg-primary-800 rounded-lg">
-          <Typography $variant="xs" className="text-primary-500 dark:text-primary-400">
+        <div className="p-4 bg-primary-0 border border-primary-200 rounded-lg">
+          <Typography $variant="xs" className="text-primary-900">
             Selected: {value || "None"}
           </Typography>
         </div>
@@ -199,8 +199,8 @@ export const MultipleSelects: Story = {
     ];
 
     return (
-      <div className="w-[400px] space-y-6 p-8 bg-white dark:bg-primary-900 rounded-xl border border-primary-200 dark:border-primary-700">
-        <Typography $variant="xl" $weight="medium" className="mb-4 text-primary-900 dark:text-primary-0">
+      <div className="w-[400px] space-y-6 p-8 bg-primary-0 rounded-xl border border-primary-200">
+        <Typography $variant="xl" $weight="medium" className="mb-4 text-primary-900">
           User Preferences
         </Typography>
 
@@ -220,14 +220,14 @@ export const MultipleSelects: Story = {
           label="Language"
         />
 
-        <div className="p-4 bg-primary-50 dark:bg-primary-800 rounded-lg space-y-2">
+        <div className="p-4 bg-primary-0 border border-primary-200 rounded-lg space-y-2">
           <Typography $variant="sm" $weight="medium">
             Selection Summary
           </Typography>
-          <Typography $variant="xs" className="text-primary-500 dark:text-primary-400">
+          <Typography $variant="xs" className="text-primary-900">
             Country: {country || "Not selected"}
           </Typography>
-          <Typography $variant="xs" className="text-primary-500 dark:text-primary-400">
+          <Typography $variant="xs" className="text-primary-900">
             Language: {language || "Not selected"}
           </Typography>
         </div>
@@ -252,9 +252,9 @@ export const FormExample: Story = {
     return (
       <form
         onSubmit={handleSubmit}
-        className="w-[450px] space-y-6 p-8 bg-white dark:bg-primary-900 rounded-xl border border-primary-200 dark:border-primary-700"
+        className="w-[450px] space-y-6 p-8 bg-primary-0 rounded-xl border border-primary-200"
       >
-        <Typography $variant="xl" $weight="medium" className="mb-4 text-primary-900 dark:text-primary-0">
+        <Typography $variant="xl" $weight="medium" className="mb-4 text-primary-900">
           Create Task
         </Typography>
 
@@ -317,20 +317,19 @@ export const InteractiveTheme: Story = {
 
     return (
       <div
-        className={`flex gap-8 p-12 flex-col w-[600px] rounded-2xl transition-all duration-300 border border-primary-200 dark:border-primary-700 ${theme === "light" ? "bg-white" : "dark bg-primary-900"
-          }`}
+        className={`flex gap-8 p-12 flex-col w-[600px] rounded-2xl transition-all duration-300 border border-primary-200 bg-primary-0`}
       >
         <div className="flex items-center gap-6 mb-4 w-full justify-between">
           <div className="flex flex-col">
             <Typography
               $variant="xl" $weight="medium"
-              className="text-primary-900 dark:text-primary-0 uppercase tracking-tight"
+              className="text-primary-900 uppercase tracking-tight"
             >
               Interactive Preview
             </Typography>
             <Typography
               $variant="xs"
-              className="text-primary-500 dark:text-primary-400 uppercase tracking-[0.2em]"
+              className="text-primary-900 uppercase tracking-[0.2em]"
             >
               Current Theme: {theme}
             </Typography>

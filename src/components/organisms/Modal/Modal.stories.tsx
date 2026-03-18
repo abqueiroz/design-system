@@ -87,8 +87,8 @@ export const Default: Story = {
  */
 export const LoginExample: Story = {
   render: () => (
-    <div className="flex flex-col gap-8 items-center">
-      <div className="flex flex-col items-center gap-2 p-4 border rounded-xl bg-surface-1 border-outline-1">
+    <div className="flex flex-col gap-8 items-center bg-primary-0 p-12 rounded-3xl transition-colors duration-300">
+      <div className="flex flex-col items-center gap-2 p-4 border rounded-xl bg-surface-1 border-outline-1 shadow-sm">
         <Typography $variant="xs" $weight="medium" className="text-primary-500 uppercase tracking-wider">
           Dark Mode Preview
         </Typography>

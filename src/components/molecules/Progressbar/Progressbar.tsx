@@ -45,7 +45,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
         {(label || showValue) && (
           <div className='flex justify-between items-end px-0.5'>
             {label && (
-              <span className='text-xs font-bold text-primary-bold uppercase tracking-wider'>
+              <span className='text-xs font-bold text-primary-900 uppercase tracking-wider'>
                 {label}
               </span>
             )}
@@ -54,8 +54,8 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
                 className={cn(
                   'text-xs font-black transition-colors duration-300',
                   isIndeterminate
-                    ? 'text-primary-main/50 animate-pulse'
-                    : 'text-primary-main'
+                    ? 'text-primary-900/50 animate-pulse'
+                    : 'text-primary-900'
                 )}
               >
                 {isIndeterminate ? 'Loading...' : `${Math.round(percent)}%`}
@@ -69,7 +69,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
           role='progressbar'
           aria-busy={isIndeterminate}
           className={cn(
-            'relative w-full overflow-hidden rounded-full bg-primary-subtle/40 shadow-inner',
+            'relative w-full overflow-hidden rounded-full bg-primary-50/40 shadow-inner',
             sizeClasses[size],
             trackClassName
           )}
@@ -79,8 +79,8 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
             className={cn(
               'relative h-full rounded-full transition-all duration-500 ease-in-out',
               isIndeterminate
-                ? 'bg-primary-main/40 animate-pulse w-full'
-                : 'bg-linear-to-r from-primary-main to-primary-bold shadow-(--primary-glow) drop-shadow-(--primary-drop-glow)',
+                ? 'bg-primary-900/40 animate-pulse w-full'
+                : 'bg-linear-to-r from-primary-900 to-primary-bold shadow-(--primary-glow) drop-shadow-(--primary-drop-glow)',
               indicatorClassName
             )}
             style={{ width: isIndeterminate ? '100%' : `${percent}%` }}

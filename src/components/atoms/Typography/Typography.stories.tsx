@@ -74,17 +74,17 @@ export const AllVariants: Story = {
     ] as const;
 
     return (
-      <div className="flex flex-col gap-8 p-8 min-w-200 bg-background text-foreground transition-colors duration-300">
+      <div className="flex flex-col gap-8 p-12 min-w-200 bg-primary-0 text-foreground transition-colors duration-300 rounded-3xl shadow-xl border border-outline-1">
         {variants.map((variant) => (
           <div
             key={variant}
             className="flex flex-col gap-2 border-b pb-4 border-outline-1 last:border-0"
           >
             <div className="flex items-center gap-4">
-              <span className="text-xs font-mono text-text-secondary uppercase tracking-wider bg-surface-2 px-2 py-1 rounded">
+              <Typography $variant="xs" $weight="bold" className="font-mono text-text-secondary uppercase tracking-wider bg-surface-2 px-2 py-1 rounded">
                 {variant}
-              </span>
-              <span className="text-xs font-mono text-text-disabled uppercase tracking-wider">
+              </Typography>
+              <Typography $variant="xs" className="font-mono text-text-disabled uppercase tracking-wider">
                 {variant === "xs"
                   ? "12px"
                   : variant === "sm"
@@ -114,7 +114,7 @@ export const AllVariants: Story = {
                                           : variant === "120pt"
                                             ? "160px"
                                             : ""}
-              </span>
+              </Typography>
             </div>
             <Typography $variant={variant}>
               Almost before we knew it, we had left the ground.
@@ -128,16 +128,17 @@ export const AllVariants: Story = {
 
 export const InteractiveTheme: Story = {
   render: () => {
-    const { theme, setTheme } = useTheme();
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { theme, toggleTheme } = useTheme();
     return (
       <div
-        className={`flex gap-8 p-12 flex-col w-200 rounded-2xl justify-center items-center transition-all duration-300 border border-outline-1 ${theme === "dark" ? "dark bg-surface-1" : "bg-surface-1"
-          }`}
+        className={`flex gap-8 p-12 flex-col w-200 rounded-3xl justify-center items-center transition-all duration-300 border border-outline-1 bg-primary-0 shadow-2xl`}
       >
         <div className="flex items-center gap-6 mb-4 w-full justify-between">
           <div className="flex flex-col">
             <Typography
               $variant="lg"
+              $weight="bold"
               className="text-foreground uppercase tracking-tight"
             >
               Interactive Preview
@@ -152,7 +153,7 @@ export const InteractiveTheme: Story = {
           <Button
             $variant="outline"
             $size="sm"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            onClick={toggleTheme}
           >
             Toggle Theme
           </Button>

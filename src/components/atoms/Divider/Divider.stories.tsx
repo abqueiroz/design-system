@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Divider } from '../Divider/Divider'
+import { Typography } from '../Typography/Typography'
 
 const meta = {
   title: 'atoms/Divider',
@@ -29,9 +30,9 @@ type Story = StoryObj<typeof meta>
 export const Horizontal: Story = {
   render: (args) => (
     <div className='w-75 flex flex-col gap-4'>
-      <div className='text-sm font-medium'>Content Above</div>
+      <Typography $variant="sm" $weight="medium">Content Above</Typography>
       <Divider {...args} />
-      <div className='text-sm font-medium'>Content Below</div>
+      <Typography $variant="sm" $weight="medium">Content Below</Typography>
     </div>
   ),
   args: {
@@ -41,12 +42,12 @@ export const Horizontal: Story = {
 
 export const Vertical: Story = {
   render: (args) => (
-    <div className='flex h-10 items-center space-x-4 text-sm'>
-      <div>Dashboard</div>
+    <div className='flex h-10 items-center space-x-4'>
+      <Typography $variant="sm">Dashboard</Typography>
       <Divider {...args} />
-      <div>Settings</div>
+      <Typography $variant="sm">Settings</Typography>
       <Divider {...args} />
-      <div>Profile</div>
+      <Typography $variant="sm">Profile</Typography>
     </div>
   ),
   args: {
@@ -58,9 +59,9 @@ export const CustomStyling: Story = {
   render: (args) => (
     <div className='w-75 flex flex-col gap-8'>
       <div className='flex flex-col gap-2'>
-        <span className='text-xs text-text-secondary uppercase tracking-wider font-bold'>
+        <Typography $variant="xs" $weight="bold" className='text-text-secondary uppercase tracking-wider'>
           Primary Color
-        </span>
+        </Typography>
         <Divider
           className='bg-primary-main via-primary-main opacity-100 h-0.5'
           {...args}
@@ -68,9 +69,9 @@ export const CustomStyling: Story = {
       </div>
 
       <div className='flex flex-col gap-2'>
-        <span className='text-xs text-text-secondary uppercase tracking-wider font-bold'>
+        <Typography $variant="xs" $weight="bold" className='text-text-secondary uppercase tracking-wider'>
           Thick & Bold
-        </span>
+        </Typography>
         <Divider
           className='h-1 bg-linear-to-r from-error-main via-warning-main to-success-main opacity-100 rounded-full'
           {...args}
@@ -78,9 +79,9 @@ export const CustomStyling: Story = {
       </div>
 
       <div className='flex flex-col gap-2'>
-        <span className='text-xs text-text-secondary uppercase tracking-wider font-bold'>
+        <Typography $variant="xs" $weight="bold" className='text-text-secondary uppercase tracking-wider'>
           Subtle Dotted (using border)
-        </span>
+        </Typography>
         <Divider
           className='bg-transparent border-t border-dashed border-outline-3'
           {...args}

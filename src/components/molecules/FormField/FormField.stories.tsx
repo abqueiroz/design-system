@@ -104,7 +104,7 @@ export const DarkModePreview: Story = {
     children: <TextInput $startIcon={<Mail size={16} />} placeholder="name@example.com" />,
   },
   render: (args) => (
-    <div className="flex flex-col gap-8 items-center p-8 min-w-100 bg-primary-50 dark:bg-primary-900 rounded-2xl transition-colors">
+    <div className="flex flex-col gap-8 items-center p-8 min-w-100 bg-primary-0 rounded-2xl transition-colors duration-300 shadow-xl border border-outline-1">
       <div className="flex flex-col items-center gap-2 p-4 border rounded-xl bg-white dark:bg-primary-800 border-primary-200 dark:border-primary-700 shadow-sm">
         <Typography $variant="xs" $weight="medium" className="text-primary-500 dark:text-primary-400 uppercase tracking-wider">
           Dark Mode Preview

@@ -2,6 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../Button/Button";
 import { ThemeToggle } from "../ThemeToggle";
+import { Typography } from "../Typography/Typography";
 import { Mail, ArrowRight, Plus, Settings } from "lucide-react";
 import { useTheme, ThemeProvider } from '../../../hooks/use-theme';
 
@@ -243,15 +244,16 @@ export const LightAndDarkToggler: Story = {
     $variant: "primary",
   },
   render: (args) => {
-    const { theme, setTheme } = useTheme();
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { theme } = useTheme();
     return (
       <div
-        className={`flex gap-4 p-8 flex-col w-[600px] rounded-lg justify-center items-center transition-colors bg-surface-1 border border-outline-1`}
+        className={`flex gap-4 p-12 flex-col w-[600px] rounded-3xl justify-center items-center transition-colors duration-300 bg-primary-0 border border-outline-1 shadow-xl`}
       >
-        <div className="flex items-center gap-4 mb-4">
-          <span className="text-foreground text-2xl font-bold">
+        <div className="flex items-center gap-4 mb-8">
+          <Typography $variant="2xl" $weight="bold" className="text-foreground">
             Theme Status:
-          </span>
+          </Typography>
           <ThemeToggle />
         </div>
 

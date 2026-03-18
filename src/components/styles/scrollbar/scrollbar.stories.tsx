@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, useTheme } from '../../../'
+import { Button, Typography } from '../../../'
+import { useTheme } from '../../../hooks/use-theme'
 
 /**
  * These stories demonstrate the custom scrollbar styling defined in `globals.css`.
@@ -66,14 +67,15 @@ const ScrollbarGallery = () => (
 
 export const Interactive: Story = {
   render: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { theme, toggleTheme } = useTheme()
     return (
-      <div className='flex flex-col items-center gap-8'>
+      <div className='flex flex-col items-center gap-8 bg-primary-0 p-12 rounded-2xl transition-colors duration-300'>
         <div className='flex items-center gap-4 p-4 border border-outline-1 rounded-xl bg-surface-2 shadow-sm'>
-          <span className='text-sm font-medium'>
-            Current Theme: <span className='capitalize'>{theme}</span>
-          </span>
-          <Button variant='outlined' size='sm' onClick={toggleTheme}>
+          <Typography $variant='sm' $weight='medium'>
+            Current Theme: <Typography className='capitalize' $variant='sm' $weight='bold'>{theme}</Typography>
+          </Typography>
+          <Button $variant='outline' $size='sm' onClick={toggleTheme}>
             Toggle Theme
           </Button>
         </div>

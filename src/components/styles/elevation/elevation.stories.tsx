@@ -19,7 +19,8 @@ type Story = StoryObj<typeof meta>
 
 export const ElevationLevels: Story = {
   render: () => {
-    const { theme, setTheme } = useTheme()
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { theme, toggleTheme } = useTheme()
     const shadowLevels = [
       { level: 'Level 1', class: 'shadow-level-1' },
       { level: 'Level 2', class: 'shadow-level-2' },
@@ -30,19 +31,18 @@ export const ElevationLevels: Story = {
 
     return (
       <div
-        className={`flex flex-col gap-8 p-8 rounded-xl transition-colors ${theme === 'light' ? 'bg-surface-2' : 'bg-gray-600'
-          }`}
+        className={`flex flex-col gap-8 p-12 rounded-3xl transition-colors duration-300 bg-primary-0 shadow-xl border border-outline-1`}
       >
         <div className="flex items-center justify-between gap-4 mb-2">
-          <Typography variant="h2" weight="bold">Elevation Levels</Typography>
+          <Typography $variant="2xl" $weight="bold">Elevation Levels</Typography>
           <div className="flex items-center gap-4">
-            <Typography variant="body-1" weight="medium">
-              Theme: <span className="uppercase">{theme}</span>
+            <Typography $variant="sm" $weight="medium">
+              Theme: <Typography $variant="sm" $weight="bold" className="uppercase">{theme}</Typography>
             </Typography>
             <Button
-              variant="outlined"
-              size="sm"
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              $variant="outline"
+              $size="sm"
+              onClick={toggleTheme}
             >
               Toggle theme
             </Button>

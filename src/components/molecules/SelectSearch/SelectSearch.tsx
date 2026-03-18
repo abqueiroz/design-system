@@ -150,7 +150,7 @@ export const SelectSearch = React.forwardRef<HTMLButtonElement, SelectSearchProp
         {label && (
           <Typography
             $variant="sm"
-            className="mb-2 text-primary-500 dark:text-primary-400 font-medium"
+            className="mb-2 text-primary-900 font-medium"
           >
             {label}
           </Typography>
@@ -174,7 +174,7 @@ export const SelectSearch = React.forwardRef<HTMLButtonElement, SelectSearchProp
             <SelectValue placeholder={placeholder} />
           </SelectTrigger>
           <SelectContent className="w-(--radix-select-trigger-width)">
-            <div className="bg-primary-0 dark:bg-primary-900 p-1 border-b border-primary-200 dark:border-primary-700 mb-2">
+            <div className="bg-primary-0 p-1 border-b border-primary-200 mb-2">
               <TextInput
                 $size="md"
                 type="text"
@@ -190,7 +190,7 @@ export const SelectSearch = React.forwardRef<HTMLButtonElement, SelectSearchProp
             {hasGroups ? (
               <>
                 {filteredGroups!.length === 0 ? (
-                  <div className="py-6 text-center text-sm text-primary-500 dark:text-primary-400">
+                  <div className="py-6 text-center text-sm text-primary-900">
                     No options found
                   </div>
                 ) : (
@@ -216,7 +216,7 @@ export const SelectSearch = React.forwardRef<HTMLButtonElement, SelectSearchProp
             ) : (
               <>
                 {displayItems.length === 0 ? (
-                  <div className="py-6 text-center text-sm text-primary-500 dark:text-primary-400">
+                  <div className="py-6 text-center text-sm text-primary-900">
                     No options found
                   </div>
                 ) : (

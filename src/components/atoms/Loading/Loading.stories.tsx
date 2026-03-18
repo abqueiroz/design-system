@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Loading } from "./Loading";
-import { Button } from "../Button";
+import { Button, Typography } from "../";
 import { useTheme } from "../../../hooks/use-theme";
 
 const meta = {
@@ -84,15 +84,15 @@ export const Variants: Story = {
   render: () => (
     <div className="flex items-center gap-12">
       <div className="flex flex-col items-center gap-2">
-        <span className="text-xs text-text-secondary font-medium">Infinite</span>
+        <Typography $variant="xs" $weight="medium" className="text-text-secondary">Infinite</Typography>
         <Loading variant="infinite" />
       </div>
       <div className="flex flex-col items-center gap-2">
-        <span className="text-xs text-text-secondary font-medium">Dots</span>
+        <Typography $variant="xs" $weight="medium" className="text-text-secondary">Dots</Typography>
         <Loading variant="dots" />
       </div>
       <div className="flex flex-col items-center gap-2">
-        <span className="text-xs text-text-secondary font-medium">Text</span>
+        <Typography $variant="xs" $weight="medium" className="text-text-secondary">Text</Typography>
         <Loading variant="text" />
       </div>
     </div>
@@ -105,21 +105,20 @@ export const LightAndDarkToggler: Story = {
   },
 
   render: () => {
-    const { theme, setTheme } = useTheme();
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { theme, toggleTheme } = useTheme();
     return (
       <div
-        className={`flex gap-8 p-12 flex-col w-[600px] rounded-2xl justify-center items-center transition-all duration-500 ${
-          theme === "light" ? "bg-surface-1 shadow-xl" : "bg-slate-950 shadow-2xl shadow-primary-main/10"
-        }`}
+        className={`flex gap-8 p-12 flex-col w-[600px] rounded-3xl justify-center items-center transition-all duration-300 bg-primary-0 border border-outline-1 shadow-2xl`}
       >
         <div className="flex items-center gap-6 mb-4">
-          <span className="text-primary-main text-xl font-bold uppercase tracking-[0.2em]">
+          <Typography $variant="xl" $weight="bold" className="text-primary-main uppercase tracking-[0.2em]">
             Mode: {theme}
-          </span>
+          </Typography>
           <Button
-            variant="outlined"
-            size="sm"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            $variant="outline"
+            $size="sm"
+            onClick={toggleTheme}
             className="rounded-full px-6"
           >
             Toggle Theme
@@ -129,11 +128,11 @@ export const LightAndDarkToggler: Story = {
         <div className="grid grid-cols-3 gap-12 w-full items-center justify-items-center">
           <div className="flex flex-col items-center gap-3">
             <Loading variant="infinite" size="lg" />
-            <span className="text-[10px] text-text-secondary uppercase font-bold tracking-widest">Infinite</span>
+            <Typography $variant="xs" $weight="bold" className="text-text-secondary uppercase tracking-widest text-[10px]">Infinite</Typography>
           </div>
           <div className="flex flex-col items-center gap-3">
             <Loading variant="dots" size="lg" />
-            <span className="text-[10px] text-text-secondary uppercase font-bold tracking-widest">Dots</span>
+            <Typography $variant="xs" $weight="bold" className="text-text-secondary uppercase tracking-widest text-[10px]">Dots</Typography>
           </div>
           <div className="flex flex-col items-center gap-3">
             <div className="h-10 flex items-center justify-center">
@@ -143,7 +142,7 @@ export const LightAndDarkToggler: Story = {
                 className="typo-button-1"
               />
             </div>
-            <span className="text-[10px] text-text-secondary uppercase font-bold tracking-widest">Cycling Text</span>
+            <Typography $variant="xs" $weight="bold" className="text-text-secondary uppercase tracking-widest text-[10px]">Cycling Text</Typography>
           </div>
         </div>
       </div>

@@ -143,8 +143,8 @@ export const Controlled: Story = {
           $searchPlaceholder="Find..."
           label="Controlled Select"
         />
-        <div className="p-4 bg-primary-50 dark:bg-primary-800 rounded-lg">
-          <Typography $variant="xs" className="text-primary-500 dark:text-primary-400">
+        <div className="p-4 bg-primary-0 border border-primary-200 rounded-lg">
+          <Typography $variant="xs" className="text-primary-900">
             Selected: {value || "None"}
           </Typography>
         </div>
@@ -178,8 +178,8 @@ export const RemoteSearch: Story = {
           $searchPlaceholder="Remote search..."
           label="Remote Search Example"
         />
-        <div className="p-4 bg-primary-50 dark:bg-primary-800 rounded-lg">
-          <Typography $variant="xs" className="text-primary-500 dark:text-primary-400">
+        <div className="p-4 bg-primary-0 border border-primary-200 rounded-lg">
+          <Typography $variant="xs" className="text-primary-900">
             Search query: {searchValue || "Empty"}
           </Typography>
         </div>
@@ -194,11 +194,10 @@ export const Interactive: Story = {
 
     return (
       <div
-        className={`flex min-h-[400px] w-[600px] flex-col gap-6 rounded-lg p-8 transition-colors ${theme === "light" ? "bg-white" : "bg-primary-950 text-white"
-          }`}
+        className={`flex min-h-[400px] w-[600px] flex-col gap-6 rounded-lg p-8 transition-colors bg-primary-0`}
       >
-        <div className="flex items-center justify-between border-b border-primary-200 dark:border-primary-700 pb-4">
-          <Typography $variant="xl" className="text-primary-900 dark:text-primary-0 font-medium">
+        <div className="flex items-center justify-between border-b border-primary-200 pb-4">
+          <Typography $variant="xl" className="text-primary-900 font-medium">
             Select with Search
           </Typography>
           <Button
@@ -220,8 +219,8 @@ export const Interactive: Story = {
             label="Theme Aware Select"
           />
 
-          <div className="p-4 bg-primary-50 dark:bg-primary-800 rounded-lg border border-primary-200 dark:border-primary-700">
-            <Typography $variant="xs" className="text-primary-500 dark:text-primary-400 block mb-1">
+          <div className="p-4 bg-primary-0 rounded-lg border border-primary-200">
+            <Typography $variant="xs" className="text-primary-900 block mb-1">
               Selected Value:
             </Typography>
             <Typography $variant="sm" $weight="medium">

@@ -84,7 +84,7 @@ export const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
         {label && (
           <Typography
             $variant="sm"
-            className="mb-2 text-primary-500 dark:text-primary-400 font-medium"
+            className="mb-2 text-primary-900 font-medium"
           >
             {label}
           </Typography>

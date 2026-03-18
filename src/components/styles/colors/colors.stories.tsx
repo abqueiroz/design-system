@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '../../atoms/Button/Button'
-import { useTheme } from '../../../hooks'
+import { Button, Typography, useTheme } from '../../../'
 
 /**
  * This story showcases the comprehensive color palette defined in the design system's theme.
@@ -25,7 +24,7 @@ const ColorSwatch = ({ name, variable }: { name: string; variable: string }) => 
       style={{ backgroundColor: `var(${variable})` }}
     />
     <div className="px-1">
-      <p className="text-xs font-bold text-primary-900 truncate" title={name}>{name}</p>
+      <Typography $variant="xs" $weight="bold" className="text-primary-900 truncate" title={name}>{name}</Typography>
       <code className="text-[10px] text-primary-500 select-all">{variable}</code>
     </div>
   </div>
@@ -33,7 +32,7 @@ const ColorSwatch = ({ name, variable }: { name: string; variable: string }) => 
 
 const ColorGroup = ({ title, colors }: { title: string; colors: { name: string; variable: string }[] }) => (
   <div className="flex flex-col gap-4 mb-8">
-    <h3 className="text-xl font-bold border-b border-primary-100 pb-2 text-primary-900 dark:border-primary-800 dark:text-primary-50">{title}</h3>
+    <Typography $variant="xl" $weight="bold" $as="h3" className="border-b border-primary-100 pb-2 text-primary-900 dark:border-primary-800 dark:text-primary-50">{title}</Typography>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
       {colors.map((color) => (
         <ColorSwatch key={color.variable} {...color} />
@@ -44,21 +43,22 @@ const ColorGroup = ({ title, colors }: { title: string; colors: { name: string; 
 
 export const Palette: Story = {
   render: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { theme, toggleTheme } = useTheme()
 
     return (
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto p-8 rounded-3xl bg-primary-0 transition-colors duration-300">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12 p-8 rounded-2xl border border-primary-100 bg-primary-50 shadow-sm transition-all dark:border-primary-800 dark:bg-primary-900/50">
           <div className="flex flex-col gap-2">
-            <h1 className="text-4xl font-extrabold text-primary-900 dark:text-primary-50">Interactive Palette</h1>
-            <p className="text-primary-500 text-lg">
+            <Typography $variant="4xl" $weight="extrabold" $as="h1" className="text-primary-900 dark:text-primary-50">Interactive Palette</Typography>
+            <Typography $variant="lg" className="text-primary-500">
               Toggle the theme to see how colors adapt dynamically across the design system.
-            </p>
+            </Typography>
           </div>
           <div className="flex items-center gap-4 bg-primary-100/20 p-4 rounded-xl border border-primary-100 shadow-inner dark:bg-primary-900 dark:border-primary-800">
             <div className="flex flex-col">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-primary-400">Active Theme</span>
-              <span className="text-sm font-black text-primary-600 uppercase tracking-tight dark:text-primary-400">{theme}</span>
+              <Typography $variant="xs" $weight="bold" className="uppercase tracking-widest text-primary-400">Active Theme</Typography>
+              <Typography $variant="sm" $weight="bold" className="text-primary-600 uppercase tracking-tight dark:text-primary-400">{theme}</Typography>
             </div>
             <Button
               $variant="outline"

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Badge } from './Badge'
-import { ThemeToggle } from '../../atoms'
+import { ThemeToggle, Button, Typography } from '../../atoms'
 import { Check, X, Star } from 'lucide-react'
 
 const meta: Meta<typeof Badge> = {
@@ -215,16 +215,18 @@ export const Deletable: Story = {
           )}
         </div>
         {badges.length === 0 && (
-          <button
+          <Button
             onClick={() => setBadges([
               { id: '1', label: 'Removable', color: 'gray' as const },
               { id: '2', label: 'Error', color: 'red' as const },
               { id: '3', label: 'Special Role', color: 'purple' as const, size: 'lg' as const, icon: true },
             ])}
-            className="text-xs text-primary-main underline w-fit text-left"
+            $variant="outline"
+            $size="xs"
+            className="w-fit"
           >
             Reset Badges
-          </button>
+          </Button>
         )}
       </div>
     )
@@ -234,7 +236,7 @@ export const Deletable: Story = {
 export const ThemeToggleStory: Story = {
   render: () => {
     return (
-      <div className="bg-surface-primary p-20 rounded-xl flex flex-col gap-8 items-center transition-colors border border-outline-variant shadow-sm min-w-100">
+      <div className="bg-primary-0 p-20 rounded-3xl flex flex-col gap-8 items-center transition-colors duration-300 border border-outline-1 shadow-lg min-w-100">
         <ThemeToggle />
 
         <div className="flex flex-wrap justify-center gap-4">
@@ -243,9 +245,9 @@ export const ThemeToggleStory: Story = {
           <Badge $color="indigo" $size="lg">Large</Badge>
         </div>
 
-        <p className="text-sm text-text-secondary">
+        <Typography $variant="sm" className="text-text-secondary">
           Integrated ThemeToggle component
-        </p>
+        </Typography>
       </div>
     )
   },
