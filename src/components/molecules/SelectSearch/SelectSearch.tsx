@@ -173,8 +173,8 @@ export const SelectSearch = React.forwardRef<HTMLButtonElement, SelectSearchProp
           >
             <SelectValue placeholder={placeholder} />
           </SelectTrigger>
-          <SelectContent>
-            <div className="bg-white dark:bg-primary-900 p-2 border-b border-primary-200 dark:border-primary-700 mb-2">
+          <SelectContent className="w-(--radix-select-trigger-width)">
+            <div className="bg-primary-0 dark:bg-primary-900 p-1 border-b border-primary-200 dark:border-primary-700 mb-2">
               <TextInput
                 $size="md"
                 type="text"
@@ -183,6 +183,8 @@ export const SelectSearch = React.forwardRef<HTMLButtonElement, SelectSearchProp
                 value={searchValue}
                 onChange={handleSearchChange}
                 onKeyDown={handleKeyDown}
+                $fullWidth
+                className="min-w-0"
               />
             </div>
             {hasGroups ? (
