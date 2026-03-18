@@ -106,7 +106,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
     const $disabled = !!disabled
 
     return (
-      <div className={cn("relative flex items-center", $fullWidth ? 'w-full' : 'max-w-91', className)}>
+      <div className={cn("relative flex items-center min-w-72", $fullWidth ? 'w-full' : 'max-w-91', className)}>
         {$startIcon && (
           <span className={cn('absolute flex items-center justify-center pointer-events-none [&_svg]:w-4.5 [&_svg]:h-4.5 left-4', {
             'text-[#525A64] dark:text-[#9CA3AF]': $state === 'default' && !$disabled,
