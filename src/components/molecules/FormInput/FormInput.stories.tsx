@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TextInput } from "../TextInput/TextInput";
-import { Search as SearchIcon, Mail, Lock, Eye, Bell, CheckCircle } from "lucide-react";
+import { FormInput } from "./FormInput";
+import { Search as SearchIcon, Mail, Lock, CheckCircle } from "lucide-react";
 import { ThemeToggle } from "../../atoms/ThemeToggle/ThemeToggle";
 import { Typography } from "../../atoms/Typography/Typography";
 
 const meta = {
-  title: "atoms/TextInput",
-  component: TextInput,
+  title: "molecules/FormInput",
+  component: FormInput,
   parameters: {
     layout: "centered",
   },
@@ -22,6 +22,12 @@ const meta = {
       control: "select",
       options: ["sm", "md", "lg"],
     },
+    label: {
+      control: "text",
+    },
+    caption: {
+      control: "text",
+    },
     type: {
       control: "select",
       options: ["text", "email", "password", "number", "tel", "url", "search"],
@@ -36,107 +42,69 @@ const meta = {
   args: {
     $size: "md",
   },
-} satisfies Meta<typeof TextInput>;
+} satisfies Meta<typeof FormInput>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    placeholder: "Enter text...",
+    label: "Name",
+    placeholder: "Enter your name...",
+    caption: "Your full legal name as it appears on your ID.",
   },
 };
 
 export const WithStartIcon: Story = {
   args: {
+    label: "Email",
     placeholder: "name@example.com",
     $startIcon: <Mail />,
     type: "email",
+    caption: "We'll never share your email with anyone else.",
   },
 };
 
 export const WithEndIcon: Story = {
   args: {
+    label: "Search",
     placeholder: "Search components...",
     $endIcon: <SearchIcon />,
-  },
-};
-
-export const WithBothIcons: Story = {
-  args: {
-    placeholder: "Enter password",
-    type: "password",
-    $startIcon: <Lock />,
-    $endIcon: <Eye />,
-  },
-};
-
-export const Email: Story = {
-  args: {
-    type: "email",
-    placeholder: "Enter your email...",
-    $startIcon: <Mail />,
-  },
-};
-
-export const Password: Story = {
-  args: {
-    type: "password",
-    placeholder: "Enter password...",
-    $startIcon: <Lock />,
-  },
-};
-
-export const Search: Story = {
-  args: {
-    type: "search",
-    placeholder: "Search components...",
-    $startIcon: <SearchIcon />,
   },
 };
 
 export const Success: Story = {
   args: {
     $hasSuccess: true,
+    label: "Username",
     placeholder: "Username",
     $startIcon: <CheckCircle />,
     defaultValue: "antigravity_dev",
+    caption: "Username is available!",
   },
 };
 
 export const Error: Story = {
   args: {
     $hasError: true,
+    label: "Password",
     placeholder: "Enter password",
     $startIcon: <Lock />,
     defaultValue: "123",
+    caption: "Password must be at least 8 characters.",
   },
 };
 
 export const Disabled: Story = {
   args: {
+    label: "Account ID",
     placeholder: "Disabled input",
     disabled: true,
     $startIcon: <Lock />,
+    caption: "Contact support to change this.",
   },
 };
 
-export const WithValue: Story = {
-  args: {
-    defaultValue: "This is a default value",
-  },
-};
-
-export const WithFile: Story = {
-  args: {
-    type: "file",
-  },
-};
-
-/**
- * A preview of the TextInput in both light and dark modes.
- * Use the ThemeToggle to switch between modes.
- */
 export const DarkModePreview: Story = {
   render: (args) => (
     <div className="flex flex-col gap-8 items-center p-8 min-w-100 bg-primary-50 dark:bg-primary-900 rounded-2xl transition-colors">
@@ -147,11 +115,11 @@ export const DarkModePreview: Story = {
         <ThemeToggle />
       </div>
 
-      <div className="w-[364px] space-y-6">
-        <TextInput {...args} placeholder="name@example.com" />
-        <TextInput {...args} $hasError type="password" placeholder="••••••••" />
-        <TextInput {...args} $hasSuccess defaultValue="johndoe" $endIcon={<CheckCircle className="text-green-500" />} />
-        <TextInput {...args} disabled placeholder="Account ID" />
+      <div className="w-full space-y-6">
+        <FormInput {...args} label="Email Address" placeholder="name@example.com" caption="Default helper text" />
+        <FormInput {...args} $hasError label="Password" type="password" placeholder="••••••••" caption="Invalid password pattern" />
+        <FormInput {...args} $hasSuccess label="Username" defaultValue="johndoe" caption="Username is valid" $endIcon={<CheckCircle className="text-green-500" />} />
+        <FormInput {...args} disabled label="Locked Field" placeholder="Account ID" caption="Contact support to change this" />
       </div>
     </div>
   ),
@@ -160,4 +128,3 @@ export const DarkModePreview: Story = {
     $startIcon: <Mail />,
   }
 };
-

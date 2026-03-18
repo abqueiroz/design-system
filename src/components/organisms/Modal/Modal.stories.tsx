@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Modal } from "./index";
 import { Button } from "../../atoms/Button/Button";
-import { TextInput } from "../../atoms/TextInput/TextInput";
+import { FormInput } from "../../molecules/FormInput/FormInput";
 import { ThemeToggle } from "../../atoms/ThemeToggle/ThemeToggle";
 import { Typography } from "../../atoms/Typography/Typography";
 import { Mail, Lock } from "lucide-react";
@@ -110,23 +110,21 @@ export const LoginExample: Story = {
         }
       >
         <div className="space-y-5 py-2 w-full min-w-[320px]">
-          <div className="space-y-2">
-            <Typography $variant="sm" $weight="medium">Your email</Typography>
-            <TextInput
-              placeholder="name@example.com"
-              size="full"
-              startIcon={<Mail size={16} />}
-            />
-          </div>
-          <div className="space-y-2">
-            <Typography $variant="sm" $weight="medium">Your password</Typography>
-            <TextInput
-              type="password"
-              placeholder="••••••••"
-              size="full"
-              startIcon={<Lock size={16} />}
-            />
-          </div>
+          <FormInput
+            label="Your email"
+            placeholder="name@example.com"
+            $size="md"
+            $fullWidth
+            $startIcon={<Mail size={16} />}
+          />
+          <FormInput
+            label="Your password"
+            type="password"
+            placeholder="••••••••"
+            $size="md"
+            $fullWidth
+            $startIcon={<Lock size={16} />}
+          />
           <div className="flex items-center justify-between">
             <label className="flex items-center gap-2 cursor-pointer group">
               <input type="checkbox" className="rounded border-outline-2 accent-primary-900 h-4 w-4" />

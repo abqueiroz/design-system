@@ -1,71 +1,154 @@
 import * as React from 'react'
-
 import { cn } from '../../../lib/utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
+// ─── Input element variants ───────────────────────────────────────────────────
 const inputVariants = cva(
-  'py-2 h-10 px-4 border transition-all duration-200 focus-visible:shadow-active-input active:shadow-active-input rounded-radius-100 bg-surface-1 hover:border-outline-3 hover:shadow-md placeholder:text-text-placeholder focus:outline-none disabled:text-action-disabled disabled:cursor-not-allowed transition-all ',
+  // Base — layout, radius, transition, typography
+  [
+    'w-full rounded border tracking-[0.02em] font-normal',
+    'transition-colors duration-200',
+    'focus:outline-none',
+  ],
   {
     variants: {
-      hasError: {
-        true: 'border-error-main focus-visible:border-error-selected focus-visible:shadow-active-input-error active:border-error-selected active:shadow-active-input-error outline-none hover:border-error-hover',
-        false: 'border-outline-2 focus:border-primary-main text-text-primary',
+      // Size controls height + vertical padding + font size
+      $size: {
+        sm: 'h-[37px] py-2   px-4 text-sm  leading-[1.25]',
+        md: 'h-[42px] py-3   px-4 text-sm  leading-[1.25]',
+        lg: 'h-[52px] py-[14px] px-4 text-base leading-[1.5]',
       },
-      size: {
-        default: 'w-40',
-        full: 'w-full',
+
+      // Semantic state drives border / bg / text colors
+      $state: {
+        default: [
+          // Light
+          'border-[#D1D5DB] bg-white text-[#111111] placeholder:text-[#777C86]',
+          'focus:border-[#525A64]',
+          // Dark
+          'dark:border-[#525A64] dark:bg-[#41464F] dark:text-white dark:placeholder:text-[#9CA3AF]',
+          'dark:focus:border-[#525A64]',
+        ],
+        success: [
+          // Light
+          'border-[#0E9F6E] bg-[#F3FAF7] text-[#046C4E] placeholder:text-[#046C4E]',
+          'focus:border-[#0E9F6E]',
+          // Dark
+          'dark:border-[#0E9F6E] dark:bg-[#41464F] dark:text-[#0E9F6E] dark:placeholder:text-[#0E9F6E]',
+          'dark:focus:border-[#0E9F6E]',
+        ],
+        error: [
+          // Light
+          'border-[#F05252] bg-[#FDF2F2] text-[#C81E1E] placeholder:text-[#C81E1E]',
+          'focus:border-[#F05252]',
+          // Dark
+          'dark:border-[#F05252] dark:bg-[#41464F] dark:text-[#F05252] dark:placeholder:text-[#F05252]',
+          'dark:focus:border-[#F05252]',
+        ],
       },
     },
+
+    // Disabled always overrides state colors
+    compoundVariants: [
+      {
+        $state: ['default', 'success', 'error'],
+        class: [
+          'disabled:bg-[#F9FAFB] disabled:border-[#D1D5DB]',
+          'disabled:text-[#9CA3AF] disabled:placeholder:text-[#9CA3AF]',
+          'disabled:cursor-not-allowed',
+          'dark:disabled:bg-[#41464F] dark:disabled:border-[#525A64]',
+          'dark:disabled:text-[#777C86] dark:disabled:placeholder:text-[#777C86]',
+        ],
+      },
+    ],
+
     defaultVariants: {
-      size: 'default',
-      hasError: false,
+      $size: 'md',
+      $state: 'default',
     },
   }
 )
 
+// ─── Types ────────────────────────────────────────────────────────────────────
 type TextInputProps = Omit<React.ComponentProps<'input'>, 'size'> &
-  VariantProps<typeof inputVariants> & {
-    startIcon?: React.ReactNode
-    endIcon?: React.ReactNode
+  Pick<VariantProps<typeof inputVariants>, '$size'> & {
+    /** Show error styling */
+    $hasError?: boolean
+    /** Show success styling */
+    $hasSuccess?: boolean
+    /** Stretch wrapper to full container width */
+    $fullWidth?: boolean
+    /** Icon slot on the left side of the input */
+    $startIcon?: React.ReactNode
+    /** Icon slot on the right side of the input */
+    $endIcon?: React.ReactNode
   }
 
+// ─── Component ────────────────────────────────────────────────────────────────
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ className, hasError, type, size, startIcon, endIcon, ...props }, ref) => {
+  (
+    {
+      className,
+      $size = 'md',
+      $hasError = false,
+      $hasSuccess = false,
+      $fullWidth = false,
+      $startIcon,
+      $endIcon,
+      disabled,
+      type,
+      id,
+      ...props
+    },
+    ref
+  ) => {
+    const $state = $hasSuccess ? 'success' : $hasError ? 'error' : 'default'
+    const $disabled = !!disabled
+
     return (
-      <div
-        className={cn(
-          'relative flex items-center',
-          size === 'full' ? 'w-full' : 'w-40',
-          className
+      <div className={cn("relative flex items-center", $fullWidth ? 'w-full' : 'max-w-91', className)}>
+        {$startIcon && (
+          <span className={cn('absolute flex items-center justify-center pointer-events-none [&_svg]:w-4.5 [&_svg]:h-4.5 left-4', {
+            'text-[#525A64] dark:text-[#9CA3AF]': $state === 'default' && !$disabled,
+            'text-[#046C4E] dark:text-[#0E9F6E]': $state === 'success' && !$disabled,
+            'text-[#C81E1E] dark:text-[#F05252]': $state === 'error' && !$disabled,
+            'opacity-50 text-[#525A64] dark:text-[#9CA3AF]': $disabled
+          })}>
+            {$startIcon}
+          </span>
         )}
-      >
-        {startIcon && (
-          <div className='absolute left-3 flex items-center justify-center text-text-secondary pointer-events-none [&_svg]:size-4'>
-            {startIcon}
-          </div>
-        )}
+
         <input
+          id={id}
           type={type}
-          data-slot='input'
+          data-slot="input"
+          disabled={disabled}
           className={cn(
-            inputVariants({ hasError, size }),
-            'typo-body-2',
-            startIcon && 'pl-10',
-            endIcon && 'pr-10',
-            'w-full' // Input always fills the wrapper's width
+            inputVariants({ $size, $state }),
+            $startIcon && 'pl-10',
+            $endIcon && 'pr-10',
+            'w-full'
           )}
           ref={ref}
           {...props}
         />
-        {endIcon && (
-          <div className='absolute right-3 flex items-center justify-center text-text-secondary pointer-events-none [&_svg]:size-4'>
-            {endIcon}
-          </div>
+
+        {$endIcon && (
+          <span className={cn('absolute flex items-center justify-center pointer-events-none [&_svg]:w-4.5 [&_svg]:h-4.5 right-4', {
+            'text-[#525A64] dark:text-[#9CA3AF]': $state === 'default' && !$disabled,
+            'text-[#046C4E] dark:text-[#0E9F6E]': $state === 'success' && !$disabled,
+            'text-[#C81E1E] dark:text-[#F05252]': $state === 'error' && !$disabled,
+            'opacity-50 text-[#525A64] dark:text-[#9CA3AF]': $disabled
+          })}>
+            {$endIcon}
+          </span>
         )}
       </div>
     )
   }
 )
+
 TextInput.displayName = 'TextInput'
 
-export { TextInput }
+export { TextInput, inputVariants }
+export type { TextInputProps }
