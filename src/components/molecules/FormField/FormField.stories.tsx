@@ -94,6 +94,15 @@ export const WithCustomChildren: Story = {
 };
 
 export const DarkModePreview: Story = {
+  args: {
+    $hasError: false,
+    $hasSuccess: false,
+    disabled: false,
+    $fullWidth: false,
+    label: "Email Address",
+    caption: "Default helper text",
+    children: <TextInput $startIcon={<Mail size={16} />} placeholder="name@example.com" />,
+  },
   render: (args) => (
     <div className="flex flex-col gap-8 items-center p-8 min-w-100 bg-primary-50 dark:bg-primary-900 rounded-2xl transition-colors">
       <div className="flex flex-col items-center gap-2 p-4 border rounded-xl bg-white dark:bg-primary-800 border-primary-200 dark:border-primary-700 shadow-sm">
@@ -107,7 +116,7 @@ export const DarkModePreview: Story = {
         <FormField {...args} label="Email Address" caption="Default helper text">
           <TextInput $startIcon={<Mail size={16} />} placeholder="name@example.com" />
         </FormField>
-        
+
         <FormField {...args} $hasError label="Password" caption="Invalid password pattern">
           <TextInput $hasError type="password" placeholder="••••••••" />
         </FormField>
